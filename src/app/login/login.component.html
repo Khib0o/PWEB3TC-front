@@ -1,0 +1,32 @@
+<div class="grid-component">
+
+    <div class="title">
+        <h2>Connexion</h2>
+    </div>
+    
+
+    <mat-form-field appearance="fill" class="email">
+        <mat-label>Entrer votre adresse mail</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="password">
+        <mat-label>Entrer votre mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" class="validation">Connexion</button>
+
+    <mat-card class="sideImage">
+        <h2>Présentation des offres</h2>
+        <div class="sideImage-grid">
+            <mat-card class="offrePerso">Offre Personnel</mat-card>
+            <mat-card class="offrePro">Offre Professionel</mat-card>
+            <button mat-raised-button color="accent" class="savoirPlus">En savoir plus</button>
+        </div>
+    </mat-card>
+</div>

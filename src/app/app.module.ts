@@ -19,6 +19,11 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
+import { HomePageComponent } from './home-page/home-page.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     FoldersComponent,
     TopNavBarComponent,
     CalendarComponent,
+    HomePageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,10 @@ import { AppRoutingModule } from './app-routing.module';
     MatStepperModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
