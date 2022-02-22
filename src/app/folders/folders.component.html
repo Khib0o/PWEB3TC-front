@@ -1,0 +1,20 @@
+
+
+
+
+<div class="grid-component">
+    <div class="listFiles">
+        <mat-list role="list" >
+            <div mat-subheader>Shared Files</div>
+            <mat-list-item role="listitem" *ngFor="let file of files">
+                <button mat-raised-button color="primary">Modifier</button>
+                <button mat-raised-button color="warn">Supprimer</button>
+                <mat-icon mat-list-icon>note</mat-icon>
+                <div mat-line> {{file.name}}</div>
+                <div mat-line> {{file.type}} __ {{file.size}} ko </div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <app-calendar class="calendar"></app-calendar>
+</div>

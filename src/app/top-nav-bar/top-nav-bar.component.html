@@ -1,0 +1,30 @@
+<div class="grid-component">
+    <img class="icon" src ="/assets/image/logoDropBox.png">
+    <h1 class="title">
+        <a routerLink="/">Dropbox Eco + </a>
+    </h1>
+    
+    <button mat-button [matMenuTriggerFor]="menua" mat-raised-button color="primary" class="button1">Fonctionnalité</button>
+    <mat-menu  #menua="matMenu">
+        <button mat-menu-item routerLink="/folders">
+            <a>Partager les fichiers</a>
+        </button>
+        <button mat-menu-item>Programmation en temps réel</button>
+        <button mat-menu-item>Agenda</button>
+        <button mat-menu-item>To-Do liste</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="menub"  mat-raised-button class="button2" >Assistance</button>
+    <mat-menu #menub="matMenu">
+        <button mat-menu-item>Centre d'assistance</button>
+        <button mat-menu-item>Forum de la communauté</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="menuc"  mat-raised-button class="button3">Contact</button>
+    <mat-menu #menuc="matMenu">
+        <button mat-menu-item>Email</button>
+        <button mat-menu-item>Discuter avec le service commercial</button>
+    </mat-menu>
+
+    <button mat-raised-button color="primary" class="connection">Connexion</button>
+</div>

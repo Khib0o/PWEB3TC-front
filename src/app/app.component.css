@@ -1,0 +1,18 @@
+.display {grid-area: display;}
+.calendar {grid-area: calendar; width: 400px;}
+.top-nav-bar {
+    grid-area: navBar;
+    background-color: darkgray; 
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.grid-component{
+    display: grid;
+    row-gap: 30px;
+    grid-template-areas: 
+    'navBar'
+    'display';
+}
+ 

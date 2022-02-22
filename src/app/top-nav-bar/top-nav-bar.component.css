@@ -1,0 +1,52 @@
+li {
+    display: inline;
+}
+
+.icon {
+    grid-area: icone;
+    height: 50px;
+    margin: 0;
+}
+.title {grid-area: title}
+.button1 {
+    grid-area: fonctionnlite;
+    height: 50px;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.button2 {
+    grid-area: assistance;
+    height: 50px;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.button3 {
+    grid-area: contact;
+    height: 50px;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.connection{
+    grid-area: connection;
+    height: 50px;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.grid-component{
+    display: grid;
+    grid-template-areas: 
+    'icone title fonctionnlite fonctionnlite none none none assistance contact connection';
+}
+
+a {
+    text-decoration: none;
+}

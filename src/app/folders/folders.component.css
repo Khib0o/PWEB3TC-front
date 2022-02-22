@@ -1,0 +1,9 @@
+.listFiles {grid-area: files;}
+.calendar {grid-area: calendar; width: 400px;}
+.grid-component{
+    display: grid;
+    row-gap: 50px;
+    grid-template-areas: 
+    'files files none calendar calendar';
+}
+ 
