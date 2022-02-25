@@ -1,0 +1,60 @@
+
+.title {
+    grid-area: title;
+    display: inline;
+    text-align: center;
+    margin-right: 200px;
+    margin-left: 200px;
+
+    z-index: 2;
+}
+.email {
+    grid-area: email; 
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.password {
+    grid-area: password;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.passwordConfirmation {
+    grid-area: passwordConfirmation;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.validation {
+    grid-area: validation;
+    margin-right: 200px;
+    margin-left: 200px;
+    background-color: green;
+    z-index: 2;
+}
+
+.standardCard {
+    margin-right: 175px;
+    margin-left: 175px;
+    background-color:rgb(226, 238, 241);
+}
+
+.grid-component{
+    display: grid;
+    row-gap: 30px;
+    margin-right: 175px;
+    margin-left: 175px;
+    grid-template-areas: 
+    'title'
+    'email'
+    'password'
+    'passwordConfirmation'
+    'validation';
+}

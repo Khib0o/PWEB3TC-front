@@ -23,6 +23,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import {MatInputModule} from '@angular/material/input';
     CalendarComponent,
     HomePageComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,10 @@ import {MatInputModule} from '@angular/material/input';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

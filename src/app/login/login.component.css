@@ -47,6 +47,8 @@ h2 {
 .grid-component{
     display: grid;
     row-gap: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
     grid-template-areas: 
     'side side side title title'
     'side side side email email'

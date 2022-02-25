@@ -3,16 +3,17 @@ import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
-  loginUserData = {
-    email : '',
-    password : ''
+
+  registerUserData = {
+    email: '',
+    password: ''
   }
 
   getErrorMessage() {
@@ -22,18 +23,15 @@ export class LoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Adresse mail non valide' : '';
   }
 
-  
-
+  registerUser(){
+    this._auth.registerUser(this.registerUserData).subscribe({
+      next(res) { console.log(res) },
+      error(err) { console.log(err) }
+    })
+  }
   constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
-  }
-
-  loginUser() {
-    this._auth.loginUser(this.loginUserData).subscribe({
-      next(res) {console.log(res)},
-      error(err) {console.log(err)}
-    })
   }
 
 }
