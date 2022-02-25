@@ -7,11 +7,15 @@ Voir le résultat dans localhost:4200 dans le navigateur.
 Lancer le serveur en ouvrant un terminal dans le dossier 'server'
 Puis taper 'node server.js'
 
-Vous pouvez maintenant tester l'inscription et la connexion (ouvrir la console du navigateur pour voir les logs) . Pour cela clicker sur Connexion, ensuite sur s'inscrire. Taper un email et un mot de passe fictif. Ensuite aller dans Connexion et tester. (Pour l'instant il y'a seulement des console.log)
+Le système d'authentification fonctionne (inscription, connexion, déconnexion). L'accès à "partager les fichiers" ne peut se faire que si vous êtes connecté. 
+
 
 # Contenu ?
-Aller dans Fonctionnalité > Partager les fichiers
-Page de connexion et page d'inscription (fonctionne côté backend api)
+Page de connexion et page d'inscription (système d'authentification avec token d'identification)
+Aller dans Fonctionnalité > Partager les fichiers (frontend uniquement)
 
 # Design ?
 Angular material
+
+# Choses à changer
+- Actuellement, on stocke les mots de passes des utilisateurs directement "en clair" dans la base de donnée (chose qui normalement est à éviter). Il faut normalement y stocker le hash du mot de passe.
