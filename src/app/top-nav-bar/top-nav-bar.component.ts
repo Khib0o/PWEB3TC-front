@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _authService: AuthService) { }
 
   ngOnInit(): void {
   }

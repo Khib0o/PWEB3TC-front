@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken')
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ mongoose.connect(db, err => {
     }
 })
 
+
 router.get('/', (req, res) => {
     res.send('From API route')
 });
@@ -26,7 +28,9 @@ router.post('/register', (req, res) => {
         if(error) {
             console.log(error);
         } else {
-            res.status(200).send(resteredUser);
+            let payload = { subject: resteredUser._id}
+            let token = jwt.sign(payload, 'secretKey')
+            res.status(200).send({token});
         }
     })
 })
@@ -44,25 +48,13 @@ router.post('/login', (req, res)=> {
                 if (user.password !== userData.password){
                     res.status(401).send('Invalid password')
                 } else {
-                    res.status(200).send(user)
+                    let payload = { subject: user._id}
+                    let token = jwt.sign(payload, 'secretKey')
+                    res.status(200).send({token})
                 }
             }
         }
     })
-})
-
-router.get('/events', (req, res) => {
-    let events = [
-
-    ]
-    res.json(events)
-})
-
-router.get('/special', (req, res) => {
-    let events = [
-
-    ]
-    res.json(events)
 })
 
 

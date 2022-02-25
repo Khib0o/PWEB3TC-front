@@ -26,5 +26,6 @@
         <button mat-menu-item>Discuter avec le service commercial</button>
     </mat-menu>
 
-    <button mat-raised-button color="primary" class="connection" routerLink="/login">Connexion</button>
+    <button mat-raised-button color="primary" class="connection" routerLink="/login" *ngIf="!_authService.loggedIn()">Connexion</button>
+    <button mat-raised-button color="primary" class="connection" (click)="_authService.logoutUser()" routerLink="/login" *ngIf="_authService.loggedIn()"  >Déconnexion</button>
 </div>

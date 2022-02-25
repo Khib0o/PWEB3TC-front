@@ -24,8 +24,10 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 
 @NgModule({
@@ -59,7 +61,12 @@ import { AuthService } from './auth.service';
     MatInputModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard, 
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
