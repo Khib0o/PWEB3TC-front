@@ -1,0 +1,26 @@
+.image {
+    grid-area: image;
+    width: 100%;
+}
+.task {
+    grid-area: task;
+}
+.feature {
+    grid-area: feature;
+}
+.footer {
+    grid-area: footer;
+}
+
+
+
+.grid-component{
+    margin-top: -120px;
+    display: grid;
+    row-gap: 10%;
+    grid-template-areas: 
+    'image' 
+    'task' 
+    'feature' 
+    'footer';
+}

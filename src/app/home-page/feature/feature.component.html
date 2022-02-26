@@ -1,0 +1,34 @@
+<h1>Principales Fonctionnalités </h1>
+
+<div class="grid-component">
+
+    <div class="feature">
+        <div *ngFor="let feature of features">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle style="background-color:lightgray">
+                    <mat-expansion-panel-header style="background-color:navy;">
+                        <mat-panel-title >
+                            <h3>{{feature.title}}</h3>
+                            <div class="mat-icon">
+                                <mat-icon>menu</mat-icon>
+                            </div>
+                            
+                        </mat-panel-title>
+                        
+                    </mat-expansion-panel-header>
+                    <p>{{feature.content}}</p>
+                </mat-expansion-panel>
+                <mat-divider></mat-divider>
+                <mat-divider></mat-divider>
+            </mat-accordion>
+            
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+

@@ -28,6 +28,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { TaskComponent } from './home-page/task/task.component';
+import { FeatureComponent } from './home-page/feature/feature.component';
+import { FooterComponent } from './home-page/footer/footer.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -39,6 +44,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
     HomePageComponent,
     LoginComponent,
     RegisterComponent,
+    TaskComponent,
+    FeatureComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
   ],
   providers: [AuthService, AuthGuard, 
   {

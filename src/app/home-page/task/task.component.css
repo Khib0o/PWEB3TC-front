@@ -1,0 +1,11 @@
+.grid-component {
+    display: grid;
+    gap: 7.5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-template-columns: auto auto auto auto;
+}
+
+h1 {
+    text-align: center;
+}
