@@ -1,0 +1,22 @@
+.header {
+    grid-area: header;
+    background-color: azure;
+}
+.sideNav {
+    grid-area: sideNav;
+    background-color: blue;
+}
+.contentPage {
+    grid-area: contentPage;
+    background-color: red;
+}
+
+
+
+.grid-component {
+    display: grid;
+    grid-template-areas: 
+    "header header header header"
+    "sideNav contentPage contentPage contentPage"
+    ;
+}

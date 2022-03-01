@@ -1,0 +1,24 @@
+.logo {
+    grid-area: logo;
+    height: 50%;
+    margin-top: 15%;
+    width: 75%;
+    font-size: 20px;
+}
+.helps {
+    grid-area: helps;
+}
+.contact {
+    grid-area: contact;
+}
+.sign {
+    grid-area: sign;
+}
+
+.grid-component {
+    display: grid;
+    grid-template-areas: 
+    "logo none none helps contact sign";
+    height: 200px;
+
+}
