@@ -11,11 +11,14 @@
 .sign {
     grid-area: sign;
 }
+.functionality {
+    grid-area: functionality;
+}
 
 .grid-component {
     display: grid;
     grid-template-areas: 
-    "logo none none helps contact sign";
+    "logo none functionality helps contact sign";
     height: 100px;
 
 }

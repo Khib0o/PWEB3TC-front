@@ -1,10 +1,8 @@
-.header {
-    grid-area: header;
-    background-color: azure;
-}
+
 .sideNav {
     grid-area: sideNav;
     background-color: blue;
+
 }
 .contentPage {
     grid-area: contentPage;
@@ -15,8 +13,10 @@
 
 .grid-component {
     display: grid;
+    height: 100%;
+    grid-template-rows: 100%;
     grid-template-areas: 
-    "header header header header"
     "sideNav contentPage contentPage contentPage"
     ;
+    
 }
