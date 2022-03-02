@@ -1,9 +1,6 @@
 .logo {
     grid-area: logo;
-    height: 50%;
-    margin-top: 15%;
-    width: 75%;
-    font-size: 20px;
+    width: 100px;
 }
 .helps {
     grid-area: helps;
@@ -19,6 +16,6 @@
     display: grid;
     grid-template-areas: 
     "logo none none helps contact sign";
-    height: 200px;
+    height: 100px;
 
 }

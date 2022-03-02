@@ -1,0 +1,13 @@
+.activities {
+    grid-area: activities;
+}
+.deadline {
+    grid-area: deadline;
+}
+
+.grid-component {
+    display: grid;
+    grid-template-areas: 
+    'activities'
+    'deadline';
+}
