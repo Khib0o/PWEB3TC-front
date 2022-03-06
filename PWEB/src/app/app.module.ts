@@ -12,6 +12,9 @@ import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatTableModule } from '@angular/material/table';
+import { HelpComponent } from './help/help.component';
+import { ContactComponent } from './contact/contact.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { MatTableModule } from '@angular/material/table';
     HomeComponent,
     HeaderComponent,
     ContentPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    HelpComponent,
+    ContactComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
