@@ -4,14 +4,8 @@
 .deadline {
     grid-area: deadline;
 }
-.title {
-    grid-area: title
-}
 
 .grid-component {
     display: grid;
-    grid-template-areas:
-    'title' 
-    'activities'
-    'deadline';
+    
 }

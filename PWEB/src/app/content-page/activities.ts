@@ -1,4 +1,4 @@
 export interface Activities {
-    name : String;
-    location : String;
+    title : String;
+    date: String;
 }

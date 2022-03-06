@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ACTIVITIES } from './mock-activities';
+import { DEADLINES } from './mock-deadlines';
 
 @Component({
   selector: 'app-content-page',
@@ -6,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-page.component.css']
 })
 export class ContentPageComponent implements OnInit {
+  dataSourceActivities  = ACTIVITIES;
+  dataSourceDeadlines  = DEADLINES;
+  displayedColumns: string[] = ['title', 'date'];
+
+  
+
+  
 
   constructor() { }
 

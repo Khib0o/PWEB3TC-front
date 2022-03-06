@@ -11,6 +11,7 @@ import { ContentPageComponent } from './content-page/content-page.component';
 import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
