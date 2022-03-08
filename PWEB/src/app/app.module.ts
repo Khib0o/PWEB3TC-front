@@ -15,6 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 import { HelpComponent } from './help/help.component';
 import { ContactComponent } from './contact/contact.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserFileComponent } from './user-file/user-file.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     HomePageComponent,
     HelpComponent,
     ContactComponent,
-    SignInComponent
+    SignInComponent,
+    UserFileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
     MatButtonModule,
     MatListModule,
     AppRoutingModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
