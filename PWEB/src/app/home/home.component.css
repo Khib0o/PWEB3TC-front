@@ -1,5 +1,5 @@
 
-.sideNav {
+/*.pannel {
     grid-area: sideNav;
     background-color: blue;
 
@@ -16,7 +16,7 @@
     height: 100%;
     grid-template-rows: 100%;
     grid-template-areas: 
-    "sideNav contentPage contentPage contentPage"
+    "pannel contentPage contentPage contentPage"
     ;
     
-}
+}*/

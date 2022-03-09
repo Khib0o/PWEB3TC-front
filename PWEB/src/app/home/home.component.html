@@ -1,4 +1,19 @@
 <div class="grid-component">
-    <app-content-page class="contentPage"></app-content-page>
-    <div class="sideNav"></div>
+
+
+    <mat-drawer-container class="pannel">
+
+    <mat-drawer #drawer mode="side" opened>
+        Drawer content
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-content-page class="contentPage"></app-content-page>
+        <button type="button" mat-button (click)="drawer.toggle()">Toggle sidenan</button>
+    </mat-drawer-content>
+
+
+    </mat-drawer-container>
+
+
+
 </div>

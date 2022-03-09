@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav'; 
 import { ContentPageComponent } from './content-page/content-page.component';
 import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatSidenavModule,
     MatListModule,
     AppRoutingModule,
     MatTableModule,
