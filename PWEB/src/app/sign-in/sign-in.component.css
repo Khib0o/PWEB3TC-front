@@ -1,0 +1,84 @@
+h2 {
+    text-align: center;
+}
+
+.email {
+    grid-area: email; 
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.password {
+    grid-area: password;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.title {
+    grid-area: title;
+    display: inline;
+    text-align: center;
+    margin-right: 200px;
+    margin-left: 200px;
+
+    z-index: 2;
+
+}
+.validation {
+    grid-area: validation;
+    margin-right: 200px;
+    margin-left: 200px;
+    background-color: green;
+    z-index: 2;
+}
+
+.loginPanel {
+    background-color: darkgrey;
+}
+
+
+
+.sideImage {grid-area: side; background-color: cornflowerblue;}
+
+.grid-component{
+    display: grid;
+    row-gap: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
+    grid-template-areas: 
+    'side side side title title'
+    'side side side email email'
+    'side side side password password'
+    'side side side validation validation';
+}
+
+.offrePerso {
+    grid-area: offrePerso;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.offrePro {
+    grid-area: offrePro;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.savoirPlus {
+    grid-area: savoirPlus;
+    margin-right: 70px;
+    margin-left: 70px;
+    margin-top: 120px;
+    background-color: darkslateblue;
+}
+
+.sideImage-grid {
+    display: grid;
+    row-gap: 30px;
+    grid-template-areas: 
+    'offrePerso offrePro'
+    'savoirPlus savoirPlus';
+}

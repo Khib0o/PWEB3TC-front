@@ -19,6 +19,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserFileComponent } from './user-file/user-file.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     MatTableModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
