@@ -10,10 +10,11 @@ export interface UserFile {
   providedIn: 'root'
 })
 export class FileService {
-  _fileUrl = '/assets/file.json'
+  //private _fileURL = "http://localhost:3000/api/file" //recupère les données depuis le serveur
+  private _fileURL = "assets/file.json" //récupère les données depuis assets/file.json
 
   getFile() {
-    return this.http.get<UserFile[]>(this._fileUrl);
+    return this.http.get<UserFile[]>(this._fileURL);
   }
 
   constructor(private http : HttpClient) { }
