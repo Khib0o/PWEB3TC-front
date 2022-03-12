@@ -19,7 +19,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserFileComponent } from './user-file/user-file.component';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 
@@ -48,7 +48,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     FormsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
