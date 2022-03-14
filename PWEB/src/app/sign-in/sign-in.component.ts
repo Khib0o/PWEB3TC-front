@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -13,7 +14,12 @@ export class SignInComponent implements OnInit {
     email : '',
     password : ''
   }
-
+  /*
+  registerUserData = {
+    email: '',
+    password: ''
+  }
+  */
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'champ obligatoire';
@@ -23,9 +29,28 @@ export class SignInComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
   }
+
+  loginUser() {
+    this._auth.loginUser(this.loginUserData).subscribe({
+      next: (res : any) => { 
+        console.log(res) 
+      },
+      error: (err : any) => {console.log(err)}
+    })
+  }
+  /*
+  registerUser(){
+    this._auth.registerUser(this.registerUserData).subscribe({
+      next: (res) => { 
+        console.log(res) 
+      },
+      error: (err) => {console.log(err)}
+    })
+  }
+  */
 
 }
