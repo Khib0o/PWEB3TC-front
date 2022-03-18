@@ -3,5 +3,7 @@
     <button mat-button class="functionality" routerLink="/functionality">Functionality</button>
     <button mat-button class="helps" routerLink="/help">Help</button>
     <button mat-button class="contact" routerLink="/contact">Contact</button>
-    <button mat-button class="sign" routerLink="/signIn">SignIn</button>
+    
+    <button mat-button class="sign" routerLink="/signIn" *ngIf="!_auth.loggedIn()">Connexion</button>
+    <button mat-button class="sign" (click)="_auth.logoutUser()" routerLink="/signIn" *ngIf="_auth.loggedIn()">Déconnexion</button>
 </div>

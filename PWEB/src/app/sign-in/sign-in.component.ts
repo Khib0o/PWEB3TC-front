@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,6 +15,8 @@ export class SignInComponent implements OnInit {
     email : '',
     password : ''
   }
+
+
   auth2: any;
   @ViewChild('loginRef', {static: true }) loginElement!: ElementRef;
   /*
@@ -31,7 +34,10 @@ export class SignInComponent implements OnInit {
 
   
 
-  constructor(private _auth: AuthService) { }
+  constructor(
+    private _auth: AuthService,
+    private _router: Router
+    ) { }
 
   ngOnInit(): void {
     this.googleAuthSDK();
@@ -48,13 +54,19 @@ export class SignInComponent implements OnInit {
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
-            
+        localStorage.setItem('token', googleAuthUser.getAuthResponse().id_token)
+        
+
+        this._router.navigate(['/functionality/user-file'])
+          .then(() => {
+            window.location.reload();
+        });
+        
        /* Write Your Code Here */
     
       }, (error:any) => {
         alert(JSON.stringify(error, undefined, 2));
       });
- 
   }
   
   /**
