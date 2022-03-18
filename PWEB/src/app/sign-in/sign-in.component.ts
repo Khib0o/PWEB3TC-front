@@ -16,6 +16,11 @@ export class SignInComponent implements OnInit {
     password : ''
   }
 
+  userInfo = {
+    name: '',
+    url : '',
+  }
+
 
   auth2: any;
   @ViewChild('loginRef', {static: true }) loginElement!: ElementRef;
@@ -56,6 +61,8 @@ export class SignInComponent implements OnInit {
         console.log('Email: ' + profile.getEmail());
         localStorage.setItem('token', googleAuthUser.getAuthResponse().id_token)
         
+        this.userInfo.name = profile.getName()
+        this.userInfo.url = profile.getImageUrl()
 
         this._router.navigate(['/functionality/user-file'])
           .then(() => {

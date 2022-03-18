@@ -4,6 +4,18 @@
     <button mat-button class="helps" routerLink="/help">Help</button>
     <button mat-button class="contact" routerLink="/contact">Contact</button>
     
+
     <button mat-button class="sign" routerLink="/signIn" *ngIf="!_auth.loggedIn()">Connexion</button>
-    <button mat-button class="sign" (click)="_auth.logoutUser()" routerLink="/signIn" *ngIf="_auth.loggedIn()">Déconnexion</button>
+    <button mat-button class="sign" [matMenuTriggerFor]="menuc" *ngIf="_auth.loggedIn()">Profil</button>
+
+    <mat-menu #menuc="matMenu">
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Paramètres</span>
+    </button>
+    <button mat-menu-item (click)="_auth.logoutUser()" routerLink="/signIn" *ngIf="_auth.loggedIn()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Déconnexion</span>
+    </button>
+    </mat-menu>
 </div>
