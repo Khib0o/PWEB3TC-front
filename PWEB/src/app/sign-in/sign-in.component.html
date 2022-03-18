@@ -2,7 +2,7 @@
 
     <div class="title">
         <h2>Connexion Ou</h2>
-        <button mat-raised-button color="accent" class="validation" routerLink="/register">S'inscrire</button> 
+        <button mat-raised-button color="accent" class="validation" routerLink="/register" >S'inscrire</button> 
     </div>
     
 
@@ -20,8 +20,6 @@
         </button>
     </mat-form-field>
 
-    <button (click)="loginUser()" mat-raised-button color="accent" class="validation">Connexion</button>
-
     <mat-card class="sideImage">
         <h2>Présentation des offres</h2>
         <div class="sideImage-grid">
@@ -30,4 +28,15 @@
             <button mat-raised-button color="accent" class="savoirPlus">En savoir plus</button>
         </div>
     </mat-card>
+</div>
+
+<div class="container mt-5">
+    <h1>Google Login with Angular - ItSolutionStuff.com</h1>
+    <div class="row mt-5">
+      <div class="col-md-4 mt-2 m-auto ">
+          <button class="btn btn-danger" #loginRef>
+              Login with Google
+            </button>
+      </div>    
+    </div>
 </div>
