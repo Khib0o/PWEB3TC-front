@@ -75,6 +75,14 @@ export class SignInComponent implements OnInit {
         alert(JSON.stringify(error, undefined, 2));
       });
   }
+
+  getUserName(){
+    return this.userInfo.name
+  }
+
+  getUserUrl(){
+    return this.userInfo.url
+  }
   
   /**
    * Write code on Method

@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatMenuModule} from '@angular/material/menu';
     HelpComponent,
     ContactComponent,
     SignInComponent,
-    UserFileComponent
+    UserFileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
