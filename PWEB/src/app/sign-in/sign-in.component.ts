@@ -2,13 +2,18 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
+
 export class SignInComponent implements OnInit {
+
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
   loginUserData = {
@@ -40,6 +45,7 @@ export class SignInComponent implements OnInit {
   
 
   constructor(
+    private http: HttpClient,
     private _auth: AuthService,
     private _router: Router
     ) { }
@@ -74,14 +80,6 @@ export class SignInComponent implements OnInit {
       }, (error:any) => {
         alert(JSON.stringify(error, undefined, 2));
       });
-  }
-
-  getUserName(){
-    return this.userInfo.name
-  }
-
-  getUserUrl(){
-    return this.userInfo.url
   }
   
   /**
@@ -120,6 +118,14 @@ export class SignInComponent implements OnInit {
       },
       error: (err : any) => {console.log(err)}
     })
+  }
+
+  testBD() {
+
+    console.log("le bouton est push")
+    this.http.get('http://localhost:3333/api/users', {observe: 'response',responseType: 'json'})
+    .subscribe(data => console.log(data))
+
   }
   /*
   registerUser(){
