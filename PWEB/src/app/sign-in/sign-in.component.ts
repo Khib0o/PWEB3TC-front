@@ -123,7 +123,7 @@ export class SignInComponent implements OnInit {
   testBD() {
 
     console.log("le bouton est push")
-    this.http.get('http://localhost:3333/api/files', {observe: 'response',responseType: 'json'})
+    this.http.get('http://localhost:3333/api/users', {observe: 'response',responseType: 'json'})
     .subscribe(data => console.log(data))
 
   }
