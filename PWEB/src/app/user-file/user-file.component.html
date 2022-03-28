@@ -5,8 +5,8 @@
             <button mat-raised-button color="primary">Modifier</button>
             <button mat-raised-button color="warn">Supprimer</button>
             <mat-icon mat-list-icon>note</mat-icon>
-            <div mat-line> {{file.filename}}</div>
-            <div mat-line> {{file.type}}</div>
+            <div mat-line> {{file.Name}}</div>
+            <div mat-line> {{file.DateLastModif | date:'medium'}}</div>
         </mat-list-item>
     </mat-list>
 </div>

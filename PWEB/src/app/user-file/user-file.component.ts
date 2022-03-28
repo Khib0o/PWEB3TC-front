@@ -10,7 +10,9 @@ export class UserFileComponent implements OnInit {
 
   constructor(private fileService: FileService) { }
 
-  sharedFiles = this.fileService.getFile();
+  sharedFiles = this.fileService.getFile().pipe(
+    
+  );
 
   FileData = {
     filename: '',
