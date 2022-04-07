@@ -20,3 +20,18 @@
     ;
     
 }*/
+
+.icon {
+    font-size: 36px;
+}
+
+.logo {
+    width: 80px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 50px;
+    padding: 5%;
+}

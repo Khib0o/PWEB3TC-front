@@ -1,6 +1,6 @@
 .logo {
     grid-area: logo;
-    width: 100px;
+    width: 50px;
 }
 .helps {
     grid-area: helps;
@@ -18,7 +18,8 @@
 .grid-component {
     display: grid;
     grid-template-areas: 
-    "logo none functionality helps contact sign";
-    height: 100px;
+    "logo none functionality functionality helps contact sign";
+    height: 50px;
+    margin-bottom: 5%;
 
 }
