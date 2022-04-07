@@ -1,0 +1,20 @@
+.grid-component {
+    display: grid;
+    grid-template-areas: 'ssp';
+    background-image: linear-gradient(180deg, #f1f6f9, #9ba4b4 50%, #14274e);
+    font-family: 'Trebuchet MS', sans-serif;
+    width: 900px;
+    height: 300px;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    padding: 20px 20px 0px 20px;
+}
+
+h3 {
+    font-size: 20px;
+    color: white;
+    padding: 0px 20px 50px 20px;
+}

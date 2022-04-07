@@ -1,3 +1,44 @@
+.grid-container{
+    display: grid;
+    grid-template-areas:
+        'ssp images'
+        'realisations realisations'
+        'fin auteurs';
+}
+
+.item1{ 
+    grid-area: ssp;
+}
+
+.item2{
+    grid-area: images;
+    background-color: #f1f6f9;
+}
+
+.item3{
+    grid-area: realisations;
+    background-color: #f1f6f9;
+}
+
+.item4{
+    grid-area: fin;
+    background-color: #394867;
+}
+
+.item5{
+    grid-area: auteurs;
+    background-color: #f1f6f9;
+}
+
+
+
+
+
+
+
+
+
+
 /*
 .explications {
     border: 2px #14274e;
@@ -35,24 +76,3 @@ h3 {
     text-align: center;
 }
 */
-
-.explications {
-    grid-area: explications;
-    background-color: #f1f6f9;
-    background-image: linear-gradient(180deg, #f1f6f9, #9ba4b4 50%, #14274e);
-    font-family: 'Trebuchet MS', sans-serif;
-}
-
-.realisations {
-    grid-area: realisations;
-    background-color: #f1f6f9;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 30px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-areas: 
-    'explications none none'
-    'realisations realisations realisations';
-}

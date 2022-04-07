@@ -24,6 +24,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import { RegisterComponent } from './register/register.component';
+import { SspComponent } from './home-page/ssp/ssp.component';
+import { RealisationsComponent } from './home-page/realisations/realisations.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { RegisterComponent } from './register/register.component';
     ContactComponent,
     SignInComponent,
     UserFileComponent,
-    RegisterComponent
+    RegisterComponent,
+    SspComponent,
+    RealisationsComponent
   ],
   imports: [
     BrowserModule,
