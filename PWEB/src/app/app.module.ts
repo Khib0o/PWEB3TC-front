@@ -26,6 +26,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { RegisterComponent } from './register/register.component';
 import { SspComponent } from './home-page/ssp/ssp.component';
 import { RealisationsComponent } from './home-page/realisations/realisations.component';
+import { TaskComponent } from './home-page/task/task.component';
+import { FooterComponent } from './home-page/footer/footer.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { RealisationsComponent } from './home-page/realisations/realisations.com
     UserFileComponent,
     RegisterComponent,
     SspComponent,
-    RealisationsComponent
+    RealisationsComponent,
+    TaskComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

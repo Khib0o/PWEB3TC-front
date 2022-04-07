@@ -38,8 +38,17 @@
 </div>
 -->
 
-<div class="grid-container">
-    <button class="button" class="login-with-google-btn" #loginRef >
-        Sign in with Google
-    </button>
-</div>
+
+
+
+<body>
+    <div class="container">
+      <div class="box"></div>
+        <div class="animateOnce">
+            <h1 *ngIf="endAnimation">Connexion</h1>
+            <button class="button" class="login-with-google-btn" #loginRef >
+                Continue with Google
+            </button>
+        </div>
+    </div>
+</body>

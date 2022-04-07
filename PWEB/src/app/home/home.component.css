@@ -4,10 +4,7 @@
     background-color: blue;
 
 }
-.contentPage {
-    grid-area: contentPage;
-    border:1px dotted black;
-}
+
 
 
 
@@ -33,5 +30,14 @@
     display: grid;
     grid-template-rows: auto auto auto auto;
     row-gap: 50px;
-    padding: 5%;
+    padding: 2%;
+}
+
+.sidenav {
+    background-color: darkgray;
+    padding: 20px;
+}
+
+.contentPage {
+    background-color: white;
 }

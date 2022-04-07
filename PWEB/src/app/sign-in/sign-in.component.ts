@@ -13,7 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 
 export class SignInComponent implements OnInit {
-
+  endAnimation : boolean = false;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
   loginUserData = {
@@ -52,7 +52,14 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.googleAuthSDK();
+    this.display();
   }
+
+  display() {
+    setTimeout(() => this.endAnimation=true, 1200);
+  }
+
+
 
   callLoginButton() {
      

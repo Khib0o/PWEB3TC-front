@@ -1,25 +1,31 @@
 .logo {
     grid-area: logo;
     width: 50px;
+    color: white;
 }
 .helps {
     grid-area: helps;
+    color: white;
 }
 .contact {
     grid-area: contact;
+    color: white;
 }
 .sign {
     grid-area: sign;
+    color: white;
 }
 .functionality {
     grid-area: functionality;
+    color: white;
 }
 
 .grid-component {
+    background-color: midnightblue;
     display: grid;
     grid-template-areas: 
     "logo none functionality functionality helps contact sign";
     height: 50px;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 
 }

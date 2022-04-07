@@ -1,9 +1,10 @@
 .grid-container{
     display: grid;
     grid-template-areas:
-        'ssp images'
+        'ssp ssp'
         'realisations realisations'
-        'fin auteurs';
+        'features features'
+        'footer footer';
 }
 
 .item1{ 
@@ -17,20 +18,27 @@
 
 .item3{
     grid-area: realisations;
-    background-color: #f1f6f9;
+    margin-left: 35%;
+    color: white;
 }
 
-.item4{
-    grid-area: fin;
-    background-color: #394867;
+.features {
+    grid-area: features;
 }
 
-.item5{
+.footer{
+    grid-area: footer;
+    margin-top: 5%;
+}
+
+.item6{
     grid-area: auteurs;
     background-color: #f1f6f9;
 }
 
-
+.task {
+    margin-top: 10%;
+}
 
 
 

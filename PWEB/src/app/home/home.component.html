@@ -1,3 +1,4 @@
+
 <div class="grid-component">
 
     <button mat-icon-button>
@@ -7,7 +8,7 @@
     <mat-drawer-container class="pannel">
 
         
-        <mat-drawer #drawer mode="side" opened>
+        <mat-drawer #drawer mode="side" opened class="sidenav">
             <div class="grid-container">
                 <img routerLink="" class="logo" src="/assets/logo.png">
                 <button mat-flat-button >Profil</button>
@@ -19,13 +20,11 @@
 
         
 
-        <mat-drawer-content>
-            <app-content-page class="contentPage"></app-content-page>
+        <mat-drawer-content class="contentPage">
+            <app-content-page ></app-content-page>
         </mat-drawer-content>
 
         
     </mat-drawer-container>
-    
-    
-
 </div>
+
