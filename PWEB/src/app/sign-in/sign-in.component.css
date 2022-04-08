@@ -113,66 +113,12 @@ h1 {
     row-gap: 30px;
     margin-right: 35%;
     margin-left: 35%;
+    margin-top: 7%;
     grid-template-areas: 
-    "login-with-google-btn";
+    "card";
 }
 
-*{
-    margin:0;
-    padding:0;
-  }
-  .container {
-    background-image: url(https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/217617398_119115533751938_7560944519931005805_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_ohc=mSIYYROkVUIAX8MzQRN&_nc_ht=scontent-cdt1-1.xx&oh=00_AT_RnRRXz4PWoDLePsSvrSHGmkwRm1um5RmPg6iEh66w5g&oe=6231373A);
-    background-repeat: no-repeat;
-    background-position: center center;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  }
-    .animateOnce {
-        animation: anime 1s normal forwards ease-in-out;
-    }
-
-
-  @keyframes anime {
-    0% {
-      width: 60px;
-      height: 60px;
-      background: #f0f0f0;
-      box-shadow:  0 0 0 #cccccc,
-                   0 0 0 #ffffff,
-                    10px 10px 10px #cccccc inset,
-                    -10px -10px 10px #ffffff inset;
-    }
-    25% {
-      width: 60px;
-      height: 60px;
-      background: #f8f8f8;
-      box-shadow:  10px 10px 10px #cccccc,
-                   10px 10px 10px #ffffff,
-                   0 0 0 #cccccc inset,
-                   0 0 0 #ffffff inset;
-    }
-    50% {
-      width: 60px;
-      height: 240px;
-      background: #f8f8f8;
-      box-shadow:  10px 10px 10px #cccccc,
-                   10px 10px 10px #ffffff,
-                   0 0 0 #cccccc inset,
-                   0 0 0 #ffffff inset;
-    }
-
-    100% {
-      width: 500px;
-      height: 400px;
-      background: #fafafa;
-      box-shadow:  40px 40px 40px #cccccc,
-                   0 0 0 #ffffff,
-                   0 0 0 #cccccc inset,
-                   2px 2px 2px #ffffff inset;
-    }
+.card {
+    grid-area: card;
+    margin-bottom: 200%;
 }
