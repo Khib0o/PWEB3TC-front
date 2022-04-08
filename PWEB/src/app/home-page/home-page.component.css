@@ -2,8 +2,8 @@
     display: grid;
     grid-template-areas:
         'ssp ssp'
-        'realisations realisations'
         'features features'
+        'realisations realisations'
         'footer footer';
 }
 
@@ -37,7 +37,7 @@
 }
 
 .task {
-    margin-top: 10%;
+    margin-top: 0%;
 }
 
 

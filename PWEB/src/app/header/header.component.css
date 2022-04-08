@@ -2,29 +2,67 @@
     grid-area: logo;
     width: 50px;
     color: white;
+    
 }
+
+.logo:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
 .helps {
     grid-area: helps;
     color: white;
+    border :3px solid black;
+    transition-duration: 0.4s;
+
 }
+.helps:hover {
+    background-color: #6355cc; /* Green */
+    color: white;
+  }
+
 .contact {
     grid-area: contact;
     color: white;
+    border :3px solid black;
 }
+
+.contact:hover {
+    background-color: #6355cc; /* Green */
+    color: white;
+  }
+
 .sign {
     grid-area: sign;
     color: white;
+    border :3px solid black;
+    
 }
+
+.sign:hover {
+    background-color: #6355cc; /* Green */
+    color: white;
+  }
+
 .functionality {
     grid-area: functionality;
     color: white;
+    border :3px solid black;
 }
+
+
+.functionality:hover {
+    background-color: #6355cc; /* Green */
+    color: white;
+  }
 
 .grid-component {
     background-color: midnightblue;
     display: grid;
     grid-template-areas: 
-    "logo none functionality functionality helps contact sign";
+    "logo none functionality helps contact sign";
     height: 50px;
     margin-bottom: 2%;
 
