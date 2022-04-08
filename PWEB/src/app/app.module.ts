@@ -28,6 +28,8 @@ import { SspComponent } from './home-page/ssp/ssp.component';
 import { RealisationsComponent } from './home-page/realisations/realisations.component';
 import { TaskComponent } from './home-page/task/task.component';
 import { FooterComponent } from './home-page/footer/footer.component';
+import { ProfileComponent } from './home-page/profile/profile.component';
+import { ContentMyPageComponent } from './home-page/content-mypage/content-mypage.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { FooterComponent } from './home-page/footer/footer.component';
     SspComponent,
     RealisationsComponent,
     TaskComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    ContentMyPageComponent
   ],
   imports: [
     BrowserModule,

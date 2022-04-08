@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { UserFileComponent } from './user-file/user-file.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './home-page/profile/profile.component';
 
 const routes : Routes = [
   { path: 'functionality', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes : Routes = [
   { path: 'signIn', component: SignInComponent},
   { path: 'functionality/user-file', component: UserFileComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: '', component: HomePageComponent}
 
 ]

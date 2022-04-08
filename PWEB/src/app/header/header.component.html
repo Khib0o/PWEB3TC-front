@@ -11,7 +11,7 @@
     <mat-menu #menuc="matMenu">
     <button mat-menu-item>
         <mat-icon>settings</mat-icon>
-        <span>Paramètres</span>
+        <span routerLink="/profile" >Paramètres</span>
     </button>
     <button mat-menu-item (click)="_auth.logoutUser()" routerLink="/signIn" *ngIf="_auth.loggedIn()">
         <mat-icon>power_settings_new</mat-icon>
