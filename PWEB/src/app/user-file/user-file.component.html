@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
           <div class="col-sm-8 mt-3">
-            <h4>UPLOAD FILES</h4>
+            <h4>UPLOADING FILES</h4>
             <form
               class="mt-4"
               action="/upload"
@@ -33,25 +33,6 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
       <script>
-        $(document).ready(function() {
-          let imagesPreview = function(input, placeToInsertImagePreview) {
-            if (input.files) {
-              let filesAmount = input.files.length;
-              for (i = 0; i < filesAmount; i++) {
-                let reader = new FileReader();
-                reader.onload = function(event) {
-                  $($.parseHTML("<img>"))
-                    .attr("src", event.target.result)
-                    .appendTo(placeToInsertImagePreview);
-                };
-                reader.readAsDataURL(input.files[i]);
-              }
-            }
-          };
-          $("#input-files").on("change", function() {
-            imagesPreview(this, "div.preview-images");
-          });
-        });
       </script>
     
     <mat-list role="list" >

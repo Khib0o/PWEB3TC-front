@@ -12,7 +12,6 @@ export interface UserFile {
 })
 export class FileService {
   private _fileURL = "http://localhost:3333/api/files" //recupère les données depuis le serveur
-  //private _fileURL = "assets/file.json" //récupère les données depuis assets/file.json
 
   getFile() {
     console.log(this.http.get<any[]>(this._fileURL));
