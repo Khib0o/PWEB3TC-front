@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
           <div class="col-sm-8 mt-3">
-            <h4>UPLOADING FILES</h4>
+            <h3 style="color: rgb(33, 150, 183);">UPLOAD FILES</h3>
             <form
               class="mt-4"
               action="/upload"
@@ -17,9 +17,10 @@
                   name="file"
                   id="input-files"
                   class="form-control-file border"
+                  [(ngModel)]="FileUpload"
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary" (click)="uploadFile(this.FileUpload)"> Submit </button>
             </form>
           </div>
         </div>
@@ -40,9 +41,9 @@
         <mat-list-item role="listitem" *ngFor="let file of sharedFiles |async">
             <button mat-raised-button color="primary">Modifier</button>
             <button mat-raised-button color="warn">Supprimer</button>
-            <mat-icon mat-list-icon>note</mat-icon>
-            <div mat-line> {{file.Name}}</div>
-            <div mat-line> {{file.DateLastModif | date:'medium'}}</div>
+            <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
+            <div mat-line style="color: rgb(255, 255, 255);"> {{file.Name}}</div>
+            <div mat-line style="color: rgb(98, 98, 114);"> {{file.DateLastModif | date:'medium'}}</div>
         </mat-list-item>
     </mat-list>
 

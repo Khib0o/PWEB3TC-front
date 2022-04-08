@@ -1,14 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService, UserFile } from '../file.service';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-user-file',
   templateUrl: './user-file.component.html',
   styleUrls: ['./user-file.component.css']
 })
-export class UserFileComponent implements OnInit {
 
-  constructor(private fileService: FileService) { }
+export class UserFileComponent implements OnInit {
+  
+  FileUpload = {
+    fieldname: '',
+    originalname: '',
+    encoding :'',
+    mimetype:'',
+    destination:'',
+    filename:'',
+    path:'',
+    size:''
+  }
+
+  constructor(private fileService: FileService, private http : HttpClient) {
+    this.http.post('http://localhost:3333/upload', this.FileUpload).toPromise().then(data => {console.log(data)})
+   }
 
   sharedFiles = this.fileService.getFile().pipe(
     
@@ -20,6 +35,9 @@ export class UserFileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.http.post<any>('http://http://localhost:3333', { title: 'Angular POST Request Example' }).subscribe(data => {
+        this.FileUpload
+    })
   }
 
   createFile() {
@@ -29,6 +47,11 @@ export class UserFileComponent implements OnInit {
       },
       error: (err) => {console.log(err)}
     })
+  }
+
+  uploadFile(file :any){
+    this.fileService.uploadFile(file);
+    console.log(file);
   }
 
 }
