@@ -9,9 +9,9 @@
     <button mat-button class="sign" [matMenuTriggerFor]="menuc" *ngIf="_auth.loggedIn()">Profil</button>
 
     <mat-menu #menuc="matMenu">
-    <button mat-menu-item>
+    <button routerLink="/profile"  mat-menu-item>
         <mat-icon>settings</mat-icon>
-        <span routerLink="/profile" >Paramètres</span>
+        <span>Paramètres</span>
     </button>
     <button mat-menu-item (click)="_auth.logoutUser()" routerLink="/signIn" *ngIf="_auth.loggedIn()">
         <mat-icon>power_settings_new</mat-icon>

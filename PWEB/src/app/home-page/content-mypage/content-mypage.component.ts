@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ACTIVITIES } from './mock-activities';
+import { TEAM } from './mock-team';
 import { DEADLINES } from './mock-deadlines';
 
 @Component({
@@ -8,9 +8,9 @@ import { DEADLINES } from './mock-deadlines';
   styleUrls: ['./content-mypage.component.css']
 })
 export class ContentMyPageComponent implements OnInit {
-  dataSourceActivities  = ACTIVITIES;
+  teamData  = TEAM;
   dataSourceDeadlines  = DEADLINES;
-  displayedColumns: string[] = ['title', 'date'];
+  displayedColumns: string[] = ['code', 'name'];
 
   
 

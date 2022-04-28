@@ -1,35 +1,49 @@
 <div class="grid-component">
     
-    <h1>Page Personnelle</h1>
-
-
-    <h2> Nom:Jiang -----    Prenom:Zhenglin-----    Age:21 </h2>    
-
-
-    <h2> Nom:Teys-----     Prenom:Louis -----   Age:21 </h2> 
-    
-    <h2> Nom:Mansour -----    Prenom:Yanni-----    Age:20 </h2>
-    
-    <h2> Nom:Dinh -----    Prenom:Tony -----   Age:20 </h2>
-    
-    <h2> Nom:Jerbi -----    Prenom:Ghassen-----    Age:20 </h2>
-    
-    <h2> Nom:Lee -----    Prenom:Chanbin-----     Age:20 </h2> 
-    <p>text<p>
-
-    <table width="960px" border="1" align="left" >
+    <h1>Page Personnelle</h1>  
+    <h2> Basic Info </h2>
+    <table>
         <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
+          <td class="basicinfo">Photo</td>
+          <td class="basicinfo">2</td>
+          <td class="basicinfo"><img src="/assets/logo.png" width="50px" height="50px"/></td>
         </tr>
         <tr>
-            <td>row 1, cell 1</td>
-            <td>row 1, cell 2</td>
+            <td class="basicinfo">Name</td>
+            <td class="basicinfo">JIANG</td>
+        </tr>   
+        <tr>
+            <td class="basicinfo">Birthday</td>
+            <td class="basicinfo">2000.9.17</td>
         </tr>
         <tr>
-            <td>row 2, cell 1</td>
-            <td>row 2, cell 2</td>
+            <td class="basicinfo">Gender</td>
+            <td class="basicinfo">Male</td>
+        </tr>
+        <tr>
+            <td class="basicinfo">Email</td>
+            <td class="basicinfo">zhenglinjiang@126.com</td>
+        </tr>
+        <tr>
+            <td class="basicinfo">Phone</td>
+            <td class="basicinfo">0642904124</td>
         </tr>
     </table>
-    <img src="/assets/logo.png"  alt="Page" />
+    <h2> My Team </h2>
+    <table mat-table [dataSource]="teamData" >
+        <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef> Titre </th>
+            <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Deadline </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    
 </div>
