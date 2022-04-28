@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { UserInfo } from '../models/user-info';
 
 @Component({
   selector: 'app-sign-in',
@@ -21,9 +22,12 @@ export class SignInComponent implements OnInit {
     password : ''
   }
 
-  userInfo = {
-    name: '',
-    url : '',
+  userInfo : UserInfo = {
+    "token": "",
+    "id": 0,
+    "name": "",
+    "url": "",
+    "email": ""
   }
 
 
@@ -62,7 +66,6 @@ export class SignInComponent implements OnInit {
 
 
   callLoginButton() {
-     
     this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
       (googleAuthUser:any) => {
      
@@ -74,8 +77,15 @@ export class SignInComponent implements OnInit {
         console.log('Email: ' + profile.getEmail());
         localStorage.setItem('token', googleAuthUser.getAuthResponse().id_token)
         
-        this.userInfo.name = profile.getName()
-        this.userInfo.url = profile.getImageUrl()
+        this.userInfo.token = googleAuthUser.getAuthResponse().id_token;
+        this.userInfo.id = profile.getId();
+        this.userInfo.name = profile.getName();
+        this.userInfo.url = profile.getImageUrl();
+        this.userInfo.email = profile.getEmail();
+
+        this.registerGoogleAccount();
+
+
 
         this._router.navigate(['/functionality/user-file'])
           .then(() => {
@@ -118,6 +128,14 @@ export class SignInComponent implements OnInit {
    
   }
 
+  registerGoogleAccount() {
+    this._auth.registerGoogleAccount(this.userInfo).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
+
+  /*
   loginUser() {
     this._auth.loginUser(this.loginUserData).subscribe({
       next: (res : any) => { 
@@ -126,7 +144,9 @@ export class SignInComponent implements OnInit {
       error: (err : any) => {console.log(err)}
     })
   }
+  */
 
+  
   testBD() {
 
     console.log("le bouton est push")
@@ -134,6 +154,7 @@ export class SignInComponent implements OnInit {
     .subscribe(data => console.log(data))
 
   }
+  
   /*
   registerUser(){
     this._auth.registerUser(this.registerUserData).subscribe({
