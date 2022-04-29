@@ -60,6 +60,9 @@ export class UserFileComponent implements OnInit {
   }*/
 
   //Test
+
+
+
   shortLink: string = "";
   loading: boolean = false; // Flag variable
   file!: File // Variable to store file
@@ -72,12 +75,8 @@ export class UserFileComponent implements OnInit {
     this.loading = !this.loading;
     console.log(this.file);
     this.fileService.uploadFile(this.file).subscribe(
-      (event: any) => {
-        if (typeof (event) === 'object') {
-          this.shortLink = event.link;
-          this.loading = false;
-        }
-      }
+      res => console.log(res),
+      err => console.log(err)
     );
   }
 

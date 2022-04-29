@@ -2,15 +2,15 @@
     
     <h1>Page Personnelle</h1>  
     <h2> Basic Info </h2>
-    <table>
+    <table *ngIf="userInfo$ | async as userInfo">
         <tr>
           <td class="basicinfo">Photo</td>
           <td class="basicinfo">2</td>
-          <td class="basicinfo"><img src="/assets/logo.png" width="50px" height="50px"/></td>
+          <td class="basicinfo"><img src={{userInfo.url}} width="50px" height="50px"/></td>
         </tr>
         <tr>
             <td class="basicinfo">Name</td>
-            <td class="basicinfo">JIANG</td>
+            <td class="basicinfo"> {{userInfo.name}} </td>
         </tr>   
         <tr>
             <td class="basicinfo">Birthday</td>

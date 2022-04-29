@@ -12,6 +12,7 @@ export class AuthService {
 
   private _registerUrl = "http://localhost:3333/api/register"
   private _loginUrl = "http://localhost:3000/api/login"
+  private _getUserInfoUrl = "http://localhost:3333/api/getUser"
 
   constructor(
     private http: HttpClient,
@@ -43,10 +44,21 @@ export class AuthService {
   
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  }
+
+  httpOptionsToken = {
+    headers: new HttpHeaders({ 
+    'Authorization':`${this.getToken()}`})
   }
 
   registerGoogleAccount(userInfo : UserInfo): Observable<UserInfo> {
     return this.http.post<UserInfo>(this._registerUrl, userInfo, this.httpOptions)
+  }
+
+  //Envoie une requete get en donnant le token
+  getUserInfo() {
+    console.log("Mon token: ",this.getToken());
+    return this.http.get<any>(this._getUserInfoUrl, this.httpOptionsToken);
   }
 }
