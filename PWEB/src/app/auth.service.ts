@@ -51,6 +51,7 @@ export class AuthService {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization':`${this.getToken()}`,
+      'Referrer-Policy': 'no-referrer',
     })
   }
 

@@ -22,11 +22,12 @@ export class ContentMyPageComponent implements OnInit {
   constructor(private _authService : AuthService) { }
 
   ngOnInit(): void {
-    
+    /* Pour afficher le res
     this._authService.getUserInfo().subscribe(
       res => console.log(res),
       err => console.log(err)
     );
+    */
     
     this.userInfo$ = this._authService.getUserInfo()
   }
