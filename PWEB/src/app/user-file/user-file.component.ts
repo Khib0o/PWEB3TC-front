@@ -22,8 +22,10 @@ export class UserFileComponent implements OnInit {
   }
 
   constructor(private fileService: FileService, private http : HttpClient) {
+    /*
     this.http.post('http://localhost:3333/upload', this.FileUpload).toPromise().then(data => {console.log(data)})
-   }
+    */
+  }
 
   sharedFiles = this.fileService.getFile().pipe(
     
@@ -35,9 +37,11 @@ export class UserFileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /*
     this.http.post<any>('http://http://localhost:3333', { title: 'Angular POST Request Example' }).subscribe(data => {
         this.FileUpload
     })
+    */
   }
 
   createFile() {
@@ -49,9 +53,32 @@ export class UserFileComponent implements OnInit {
     })
   }
 
+  /*
   uploadFile(file :any){
     this.fileService.uploadFile(file);
     console.log(file);
+  }*/
+
+  //Test
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file!: File // Variable to store file
+
+  onChange(event: any) {
+    this.file = event.target.files[0];
+  }
+
+  onUpload() {
+    this.loading = !this.loading;
+    console.log(this.file);
+    this.fileService.uploadFile(this.file).subscribe(
+      (event: any) => {
+        if (typeof (event) === 'object') {
+          this.shortLink = event.link;
+          this.loading = false;
+        }
+      }
+    );
   }
 
 }

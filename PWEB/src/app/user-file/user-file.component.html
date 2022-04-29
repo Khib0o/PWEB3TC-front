@@ -12,15 +12,9 @@
               enctype="multipart/form-data"
             >
               <div class="form-group">
-                <input
-                  type="file"
-                  name="file"
-                  id="input-files"
-                  class="form-control-file border"
-                  [(ngModel)]="FileUpload"
-                />
+                <input class="form-control" type="file" (change)="onChange($event)">
               </div>
-              <button type="submit" class="btn btn-primary" (click)="uploadFile(this.FileUpload)"> Submit </button>
+              <button type="submit" class="btn btn-primary" (click)="onUpload()"> Submit </button>
             </form>
           </div>
         </div>
@@ -56,3 +50,4 @@
 </mat-form-field>
 
 -->
+

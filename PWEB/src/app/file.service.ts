@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 
 export interface UserFile {
@@ -15,6 +18,13 @@ export class FileService {
   private _fileLoad = "http://http://localhost:3333"
   private _fileUpload = "http://http://localhost:3333/upload"
 
+  httpOptions = {
+    headers: new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.auth.getToken()}`,
+   })
+  }
+
   getFile() {
     console.log(this.http.get<any[]>(this._fileURL));
     return this.http.get<any[]>(this._fileURL);
@@ -24,12 +34,14 @@ export class FileService {
     return this.http.post<UserFile>(this._fileURL, file);
   }
 
-  uploadFile(file :any){
-    return this.http.get<any>(this._fileLoad, file).subscribe(data =>{file=data});
+  uploadFile(file: any):Observable<any>{
+    const formData = new FormData();
+    formData.append("file", file, file.name);
+    return this.http.post(this._fileUpload, formData, this.httpOptions);
   }
 
 
 
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private auth: AuthService) { }
 }
