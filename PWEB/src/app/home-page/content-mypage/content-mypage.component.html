@@ -2,32 +2,24 @@
     
     <h1>Page Personnelle</h1>  
     <h2> Basic Info </h2>
-    <table *ngIf="userInfo$ | async as userInfo">
+    <table *ngFor="let userInfo of userInfo$ | async">
         <tr>
           <td class="basicinfo">Photo</td>
-          <td class="basicinfo">2</td>
+          <td class="basicinfo"></td>
           <td class="basicinfo"><img src={{userInfo.url}} width="50px" height="50px"/></td>
-        </tr>
+        </tr> 
         <tr>
             <td class="basicinfo">Name</td>
             <td class="basicinfo"> {{userInfo.name}} </td>
         </tr>   
         <tr>
-            <td class="basicinfo">Birthday</td>
-            <td class="basicinfo">2000.9.17</td>
-        </tr>
-        <tr>
-            <td class="basicinfo">Gender</td>
-            <td class="basicinfo">Male</td>
-        </tr>
-        <tr>
             <td class="basicinfo">Email</td>
-            <td class="basicinfo">zhenglinjiang@126.com</td>
+            <td class="basicinfo"> {{userInfo.email}} </td>
         </tr>
         <tr>
-            <td class="basicinfo">Phone</td>
-            <td class="basicinfo">0642904124</td>
-        </tr>
+            <td class="basicinfo">Id</td>
+            <td class="basicinfo"> {{userInfo.id}} </td>
+        </tr> 
     </table>
     <h2> My Team </h2>
     <table mat-table [dataSource]="teamData" >

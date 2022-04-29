@@ -15,18 +15,19 @@ export class ContentMyPageComponent implements OnInit {
   dataSourceDeadlines  = DEADLINES;
   displayedColumns: string[] = ['code', 'name'];
 
-  userInfo$!: Observable<UserInfo>;
-  
+  userInfo$!: Observable<UserInfo[]>;
 
   
 
   constructor(private _authService : AuthService) { }
 
   ngOnInit(): void {
+    
     this._authService.getUserInfo().subscribe(
       res => console.log(res),
       err => console.log(err)
     );
+    
     this.userInfo$ = this._authService.getUserInfo()
   }
 

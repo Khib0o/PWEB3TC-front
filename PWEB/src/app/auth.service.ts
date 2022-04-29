@@ -49,7 +49,9 @@ export class AuthService {
 
   httpOptionsToken = {
     headers: new HttpHeaders({ 
-    'Authorization':`${this.getToken()}`})
+      'Content-Type': 'application/json',
+      'Authorization':`${this.getToken()}`,
+    })
   }
 
   registerGoogleAccount(userInfo : UserInfo): Observable<UserInfo> {
