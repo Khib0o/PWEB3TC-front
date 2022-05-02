@@ -1,0 +1,28 @@
+<div class="grid-component">
+
+    <button mat-icon-button>
+        <mat-icon class="icon" (click)="drawer.toggle()" [ngStyle]="{'color':'white'}">menu</mat-icon>
+    </button>
+    
+    <mat-drawer-container class="pannel">
+
+        
+        <mat-drawer #drawer mode="side" opened class="sidenav">
+            <div class="grid-container">
+                <img routerLink="" class="logo" src="/assets/logo.png">
+                <button mat-flat-button routerLink="/profile">Profil</button>
+                <button mat-flat-button >Projets</button>
+                <button mat-flat-button >Groupes</button>
+                <button mat-flat-button routerLink="/functionality/user-file">Fichiers</button>
+            </div>
+        </mat-drawer>
+
+        
+
+        <mat-drawer-content class="contentPage">
+            <app-content-mypage ></app-content-mypage>
+        </mat-drawer-content>   
+
+        
+    </mat-drawer-container>
+</div>

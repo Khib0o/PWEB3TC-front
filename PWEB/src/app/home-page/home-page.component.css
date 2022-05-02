@@ -1,0 +1,86 @@
+.grid-container{
+    display: grid;
+    grid-template-areas:
+        'ssp ssp'
+        'features features'
+        'realisations realisations'
+        'footer footer';
+}
+
+.item1{ 
+    grid-area: ssp;
+}
+
+.item2{
+    grid-area: images;
+    background-color: #f1f6f9;
+}
+
+.item3{
+    grid-area: realisations;
+    margin-left: 35%;
+    color: white;
+}
+
+.features {
+    grid-area: features;
+}
+
+.footer{
+    grid-area: footer;
+    margin-top: 5%;
+}
+
+.item6{
+    grid-area: auteurs;
+    background-color: #f1f6f9;
+}
+
+.task {
+    margin-top: 0%;
+}
+
+
+
+
+
+
+
+
+/*
+.explications {
+    border: 2px #14274e;
+    background-color: #f1f6f9;
+    padding: 20px;
+    margin: 0px;
+    width: 900px;
+    height: 400px;
+    background-image: linear-gradient(180deg, #f1f6f9, #9ba4b4 50%, #14274e);
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #142036;
+}
+
+h2 {
+    font-size: 40px;
+    text-transform: capitalize;
+}
+
+p {
+    font-size: 20px;
+}
+
+.realisations {
+    background-color: #f1f6f9;
+    padding: 20px;
+    margin: 0px;
+    width: 1800px;
+    height: 400px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 40px;
+    text-align: center;
+}
+*/

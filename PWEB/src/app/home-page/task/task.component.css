@@ -1,0 +1,20 @@
+.grid-component {
+    display: grid;
+    gap: 7.5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-template-columns: auto auto auto auto;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(212, 212, 212);
+}
+
+h3 {
+    color: rgb(212, 212, 212);
+}
+
+p {
+    color: rgb(212, 212, 212);
+}

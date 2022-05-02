@@ -1,0 +1,41 @@
+<div class="grid-component">
+    
+    <h1>Page Personnelle</h1>  
+    <h2> Basic Info </h2>
+    <table *ngFor="let userInfo of userInfo$ | async">
+        <tr>
+          <td class="basicinfo">Photo</td>
+          <td class="basicinfo"></td>
+          <td class="basicinfo"><img src={{userInfo.url}} width="50px" height="50px"/></td>
+        </tr> 
+        <tr>
+            <td class="basicinfo">Name</td>
+            <td class="basicinfo"> {{userInfo.name}} </td>
+        </tr>   
+        <tr>
+            <td class="basicinfo">Email</td>
+            <td class="basicinfo"> {{userInfo.email}} </td>
+        </tr>
+        <tr>
+            <td class="basicinfo">Id</td>
+            <td class="basicinfo"> {{userInfo.id}} </td>
+        </tr> 
+    </table>
+    <h2> My Team </h2>
+    <table mat-table [dataSource]="teamData" >
+        <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef> Titre </th>
+            <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Deadline </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    
+</div>

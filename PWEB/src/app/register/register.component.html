@@ -1,0 +1,32 @@
+<mat-card class="standardCard">
+    <div class="grid-component">
+        <h2 class="title">Inscription</h2>
+        
+        <mat-form-field appearance="fill" class="email">
+            <mat-label>Entrer votre adresse mail</mat-label>
+            <input [(ngModel)]="registerUserData.email" name="email" matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="password">
+            <mat-label>Entrer votre mot de passe</mat-label>
+            <input [(ngModel)]="registerUserData.password" name="password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        
+        <!--
+        <mat-form-field appearance="fill" class="passwordConfirmation">
+            <mat-label>Confirmer votre mot de passe</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        -->
+        
+        <button *ngIf="email.valid" (click)="registerUser()" mat-raised-button color="accent" class="validation">S'inscrire</button>
+        <button *ngIf="email.invalid" mat-raised-button color="accent" class="validation">S'inscrire</button>
+    </div>
+</mat-card>

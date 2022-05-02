@@ -1,0 +1,7 @@
+.grid-component {
+    display: grid;
+    grid-template-areas: 'ssp';
+    font-family: 'Trebuchet MS', sans-serif;
+    height: 300px;
+}
+

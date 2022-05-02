@@ -1,0 +1,124 @@
+/*
+h2 {
+    text-align: center;
+}
+
+.email {
+    grid-area: email; 
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.password {
+    grid-area: password;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
+
+    z-index: 2;
+}
+.title {
+    grid-area: title;
+    display: inline;
+    text-align: center;
+    margin-right: 200px;
+    margin-left: 200px;
+
+    z-index: 2;
+
+}
+.validation {
+    grid-area: validation;
+    margin-right: 200px;
+    margin-left: 200px;
+    background-color: green;
+    z-index: 2;
+}
+
+.loginPanel {
+    background-color: darkgrey;
+}
+
+
+
+.sideImage {grid-area: side; background-color: cornflowerblue;}
+
+.grid-component{
+    display: grid;
+    row-gap: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
+    grid-template-areas: 
+    'side side side title title'
+    'side side side email email'
+    'side side side password password'
+    'side side side validation validation';
+}
+
+.offrePerso {
+    grid-area: offrePerso;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.offrePro {
+    grid-area: offrePro;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.savoirPlus {
+    grid-area: savoirPlus;
+    margin-right: 70px;
+    margin-left: 70px;
+    margin-top: 120px;
+    background-color: darkslateblue;
+}
+
+.sideImage-grid {
+    display: grid;
+    row-gap: 30px;
+    grid-template-areas: 
+    'offrePerso offrePro'
+    'savoirPlus savoirPlus';
+}
+*/
+h1 {
+    text-align: center;
+    margin-bottom: 30%;
+}
+
+.login-with-google-btn {
+    margin-left: 30%;
+    padding: 12px 16px 12px 42px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    
+    color: #757575;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 12px 11px;
+
+}
+
+.grid-container{
+    display: grid;
+    row-gap: 30px;
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 7%;
+    grid-template-areas: 
+    "card";
+}
+
+.card {
+    grid-area: card;
+    margin-bottom: 200%;
+}

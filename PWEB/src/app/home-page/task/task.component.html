@@ -1,0 +1,11 @@
+<h1 data-aos="fade-up">Réalisez plus de tâches avec vos fichiers</h1>
+
+
+<div class="grid-component">
+    <div *ngFor="let task of tasks">
+        <mat-icon class="icon" [ngStyle]="{'color':'white'}">work</mat-icon>
+        <h3> {{task.title}} </h3>
+        <p> {{task.content}} </p>
+    </div>
+</div>
+

@@ -1,0 +1,69 @@
+<!--
+<div class="grid-component">
+
+    <div class="title">
+        <h2>Connexion Ou</h2>
+        <button mat-raised-button color="accent" class="validation" routerLink="/register" >S'inscrire</button> 
+        <button mat-raised-button color="accent" class="validation" (click)="testBD()" >Test</button> 
+    </div>
+    
+
+    <mat-form-field appearance="fill" class="email">
+        <mat-label>Entrer votre adresse mail</mat-label>
+        <input [(ngModel)]="loginUserData.email" name="email" matInput placeholder="pat@example.com">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="password">
+        <mat-label>Entrer votre mot de passe</mat-label>
+        <input [(ngModel)]="loginUserData.password" name="password" matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+</div>
+
+<button (click)="loginUser()">Connexion avec le site</button>
+
+<div class="container mt-5">
+    <h1>Google Login with Angular - ItSolutionStuff.com</h1>
+    <div class="row mt-5">
+      <div class="col-md-4 mt-2 m-auto ">
+            <button class="btn btn-danger" #loginRef>
+              Login with Google
+            </button>
+      </div>    
+    </div>
+</div>
+-->
+
+
+
+<!--
+<body>
+    <div class="container">
+      <div class="box"></div>
+        <div class="animateOnce">
+            <h1 *ngIf="endAnimation">Connexion</h1>
+            <button class="button" class="login-with-google-btn" #loginRef >
+                Continue with Google
+            </button>
+        </div>
+    </div>
+</body>
+-->
+
+
+<div class="grid-container">
+    <mat-card class="card">
+        <mat-card-title>Login with Google</mat-card-title>
+        <mat-card-actions>
+            <button class="button" class="login-with-google-btn" #loginRef >
+                Continue with Google
+            </button>
+            <button mat-raised-button color="accent" class="validation" (click)="testBD()" >Test</button> 
+        </mat-card-actions>
+    </mat-card>
+</div>
+

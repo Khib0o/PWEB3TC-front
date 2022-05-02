@@ -1,0 +1,24 @@
+.icon {
+    font-size: 36px;
+}
+
+.logo {
+    width: 80px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 50px;
+    padding: 2%;
+}
+
+.sidenav {
+    background-color: darkgray;
+    padding: 20px;
+}
+
+.contentPage {
+    background-color: white;
+}
+

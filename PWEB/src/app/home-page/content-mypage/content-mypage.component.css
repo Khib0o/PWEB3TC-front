@@ -1,0 +1,31 @@
+.activities {
+    grid-area: activities;
+}
+.deadline {
+    grid-area: deadline;
+}
+.team {
+    grid-area: team;
+}
+.grid-component {
+    display: grid;
+    background-color: white;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+table {    
+    border: 0.1px solid rgb(252, 242, 242);    
+}
+
+td.basicinfo {
+    border-bottom: 1px solid rgb(242, 242, 242); 
+    height: 50px;
+} 
+tr.basicinfo:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+tr.basicinfo:nth-child(even) {
+    background-color: #ffffff;
+}
+

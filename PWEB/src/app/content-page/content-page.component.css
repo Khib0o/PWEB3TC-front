@@ -1,0 +1,13 @@
+.activities {
+    grid-area: activities;
+}
+.deadline {
+    grid-area: deadline;
+}
+
+.grid-component {
+    display: grid;
+    background-color: white;
+    margin-right: 10%;
+    margin-left: 10%;
+}
