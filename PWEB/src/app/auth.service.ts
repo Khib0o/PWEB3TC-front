@@ -10,9 +10,9 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost:3333/api/register"
+  private _registerUrl = "http://localhost:3000/api/register"
   private _loginUrl = "http://localhost:3000/api/login"
-  private _getUserInfoUrl = "http://localhost:3333/api/getUser"
+  private _getUserInfoUrl = "http://localhost:3000/api/getUser"
 
   constructor(
     private http: HttpClient,
@@ -51,7 +51,6 @@ export class AuthService {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization':`${this.getToken()}`,
-      'Referrer-Policy': 'no-referrer',
     })
   }
 

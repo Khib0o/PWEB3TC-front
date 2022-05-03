@@ -14,9 +14,9 @@ export interface UserFile {
   providedIn: 'root'
 })
 export class FileService {
-  private _fileURL = "http://localhost:3333/api/files" //recupère les données depuis le serveur
-  private _fileLoad = "http://http://localhost:3333"
-  private _fileUpload = "http://http://localhost:3333/upload"
+  private _fileURL = "http://localhost:3000/api/files" //recupère les données depuis le serveur
+  private _fileLoad = "http://http://localhost:3000"
+  private _fileUpload = "http://http://localhost:3000/upload"
 
   httpOptions = {
     headers: new HttpHeaders({ 
