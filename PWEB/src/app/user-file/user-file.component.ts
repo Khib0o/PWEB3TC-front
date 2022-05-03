@@ -9,7 +9,7 @@ import { HttpClient} from '@angular/common/http';
 })
 
 export class UserFileComponent implements OnInit {
-  
+  uploadedFiles!: Array < File >;
   FileUpload = {
     fieldname: '',
     originalname: '',
@@ -22,9 +22,7 @@ export class UserFileComponent implements OnInit {
   }
 
   constructor(private fileService: FileService, private http : HttpClient) {
-    /*
-    this.http.post('http://localhost:3333/upload', this.FileUpload).toPromise().then(data => {console.log(data)})
-    */
+
   }
 
   sharedFiles = this.fileService.getFile().pipe(
@@ -53,31 +51,19 @@ export class UserFileComponent implements OnInit {
     })
   }
 
-  /*
-  uploadFile(file :any){
-    this.fileService.uploadFile(file);
-    console.log(file);
-  }*/
-
-  //Test
-
-
-
-  shortLink: string = "";
-  loading: boolean = false; // Flag variable
-  file!: File // Variable to store file
-
-  onChange(event: any) {
-    this.file = event.target.files[0];
+  fileChange(element:any) {
+    this.uploadedFiles = element.target.files;
   }
 
-  onUpload() {
-    this.loading = !this.loading;
-    console.log(this.file);
-    this.fileService.uploadFile(this.file).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    );
-  }
+  upload() {
+    let formData = new FormData();
+    for (var i = 0; i < this.uploadedFiles.length; i++) {
+        formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
+    }
+    this.http.post('/api/upload', formData)
+    .subscribe((response) => {
+        console.log('response received is ', response);
+    })
+}
 
 }
