@@ -9,7 +9,7 @@ import { HttpClient} from '@angular/common/http';
 })
 
 export class UserFileComponent implements OnInit {
-  uploadedFiles!: Array < File >;
+  uploadedFiles: Array<File> = [];
   FileUpload = {
     fieldname: '',
     originalname: '',
@@ -53,13 +53,16 @@ export class UserFileComponent implements OnInit {
 
   fileChange(element:any) {
     this.uploadedFiles = element.target.files;
+    console.log(this.uploadedFiles);
   }
 
   upload() {
     let formData = new FormData();
     for (var i = 0; i < this.uploadedFiles.length; i++) {
         formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
-    }
+        console.log(formData);
+      }
+      
     this.http.post('/api/upload', formData)
     .subscribe((response) => {
         console.log('response received is ', response);
