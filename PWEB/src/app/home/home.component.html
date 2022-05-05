@@ -13,11 +13,13 @@
                 <img routerLink="" class="logo" src="/assets/logo.png">
                 <button mat-flat-button >Profil</button>
 
-                <select [(ngModel)]="selectedProject" name="first">
-                    <option *ngFor="let projet of projets$ | async">
-                        {{projet.Name}}
-                    </option>
+                <mat-form-field appearance="fill">
+                <mat-label>Vos Projet</mat-label>
+                <select matNativeControl required [(ngModel)]="selectedProject">
+                    <option >Aucun Projet</option>
+                    <option *ngFor="let projet of projets$ | async" > {{projet.Name}} </option>
                 </select>
+                </mat-form-field>
 
                 <button mat-flat-button >Groupes</button>
                 <button mat-flat-button routerLink="/functionality/user-file">Fichiers</button>
