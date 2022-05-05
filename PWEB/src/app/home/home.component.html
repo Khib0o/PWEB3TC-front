@@ -12,7 +12,13 @@
             <div class="grid-container">
                 <img routerLink="" class="logo" src="/assets/logo.png">
                 <button mat-flat-button >Profil</button>
-                <button mat-flat-button >Projets</button>
+
+                <select [(ngModel)]="selectedProject" name="first">
+                    <option *ngFor="let projet of projets$ | async">
+                        {{projet.Name}}
+                    </option>
+                </select>
+
                 <button mat-flat-button >Groupes</button>
                 <button mat-flat-button routerLink="/functionality/user-file">Fichiers</button>
             </div>
@@ -21,7 +27,25 @@
         
 
         <mat-drawer-content class="contentPage">
-            <app-content-page ></app-content-page>
+            <p>Projet selectioné: {{ selectedProject }} </p>
+            <button mat-button class="parameter-button" [matMenuTriggerFor]="menuProjet" *ngIf="selectedProject">Paramètres Projets</button>
+            <mat-menu #menuProjet="matMenu">
+            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Details Projet</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>add</mat-icon>
+                <span>Ajouter un membre</span> <!--Ouverture d'une poppup avec formulaire + Envoie invitation-->
+            </button>
+            <button mat-menu-item>
+                <mat-icon>remove</mat-icon>
+                <span>Exclure un membre</span> <!--Requete get des membres du projet dans ouverture de poppup-->
+            </button>
+            </mat-menu>
+
+            
+            <app-user-file></app-user-file>
         </mat-drawer-content>
 
         

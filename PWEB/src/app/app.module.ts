@@ -30,6 +30,7 @@ import { TaskComponent } from './home-page/task/task.component';
 import { FooterComponent } from './home-page/footer/footer.component';
 import { ProfileComponent } from './home-page/profile/profile.component';
 import { ContentMyPageComponent } from './home-page/content-mypage/content-mypage.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { ContentMyPageComponent } from './home-page/content-mypage/content-mypag
     MatInputModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
