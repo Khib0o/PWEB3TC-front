@@ -15,13 +15,14 @@ export interface UserFile {
 })
 export class FileService {
   private _fileURL = "http://localhost:3000/api/files" //recupère les données depuis le serveur
-  private _fileLoad = "http://http://localhost:3000"
-  private _fileUpload = "http://http://localhost:3000/upload"
+  private _fileLoad = "http://localhost:3000"
+  private _fileUpload = "http://localhost:3000/api/upload"
 
   httpOptions = {
     headers: new HttpHeaders({ 
-      'Content-Type': 'application/json',
+      'Content-Type': 'multipart/form-data',
       'Authorization': `Bearer ${this.auth.getToken()}`,
+      'Access-Control-Allow-Origin':'*' ,
    })
   }
 
@@ -39,6 +40,12 @@ export class FileService {
     formData.append("file", file, file.name);
     return this.http.post(this._fileUpload, formData, this.httpOptions);
   }
+
+  upload(formData:FormData):Observable<FormData>{
+    return this.http.post<FormData>(this._fileUpload,formData);
+  }
+
+  
 
 
 
