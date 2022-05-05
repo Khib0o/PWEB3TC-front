@@ -40,6 +40,8 @@ export class FileService {
     return this.http.post(this._fileUpload, formData, this.httpOptions);
   }
 
+  
+
 
 
 
