@@ -68,5 +68,17 @@ export class UserFileComponent implements OnInit {
         console.log('response received is ', response);
     })
 }
+  delete(i:any){
+    var idobj={
+      fileid: i.target.id
+    }    
+    this.http.post('/api/deletefiles', idobj)
+    .subscribe((response) => {
+        console.log('response received is ', response);
+        location.reload();
+    })
+    
+
+  }
 
 }
