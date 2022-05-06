@@ -34,7 +34,7 @@
         <div mat-subheader>Shared Files</div>
         <mat-list-item role="listitem" *ngFor="let file of sharedFiles |async">
             <button mat-raised-button color="primary">Modifier</button>
-            <button mat-raised-button color="warn">Supprimer</button>
+            <button mat-raised-button color="warn" (click)="delete($event);" id={{file.IdFile}}>Supprimer</button> 
             <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
             <div mat-line style="color: rgb(255, 255, 255);"> {{file.Name}}</div>
             <div mat-line style="color: rgb(98, 98, 114);"> {{file.DateLastModif | date:'medium'}}</div>
