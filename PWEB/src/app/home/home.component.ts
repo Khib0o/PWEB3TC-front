@@ -26,6 +26,11 @@ export class HomeComponent implements OnInit {
     "IdProjects": 0
   }
 
+  selectedProjectIdJson: ProjectUserAssociation = {
+    "email": "",
+    "IdProjects": 0
+  }
+
   constructor(
     private _projectService: ProjectService,
     public dialog: MatDialog
@@ -90,6 +95,14 @@ export class HomeComponent implements OnInit {
 
   onRemoveUserButton(projectUser : ProjectUserAssociation){
     this._projectService.removeUserToProject(projectUser).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
+
+  onGetMembersProjectButton(){
+    this.selectedProjectIdJson.IdProjects = this.selectedProjectId;
+    this._projectService.getMembersOfProject( this.selectedProjectIdJson).subscribe(
       res => console.log(res),
       err => console.log(err)
     )
