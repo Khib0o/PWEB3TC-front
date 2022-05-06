@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Project } from './models/project';
+import { Observable } from 'rxjs';
+import { ProjectUserAssociation } from './models/project-user-association';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,9 @@ export class ProjectService {
 
   constructor(private http : HttpClient, private auth: AuthService) { }
   
-  private _getProjectByUser = "http://localhost:3000/api/getProjectbyUser"
+  private _getProjectByUser = "http://localhost:3000/api/getProjectbyUser";
+  private _addUserToProject = "http://localhost:3000/api/addUserToProject";
+
 
   httpOptions = {
     headers: new HttpHeaders({ 
@@ -21,6 +25,10 @@ export class ProjectService {
 
   getProjectbyUser() {
     return this.http.get<Project[]>(this._getProjectByUser, this.httpOptions);
+  }
+
+  addUserToProject(IdProject: ProjectUserAssociation):Observable<ProjectUserAssociation> {
+    return this.http.post<ProjectUserAssociation>(this._addUserToProject, IdProject, this.httpOptions);
   }
 
 }
