@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog
   ){}
 
-  openDialog() {
+  openDialogAdd() {
     const dialogRef = this.dialog.open(AddUserDialog, {
       width: '250px',
       data: {email: this.email},
@@ -40,13 +40,26 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
 
-      
-
-
       this.projectUser.email = result;
       this.projectUser.IdProjects = this.selectedProjectId
       console.log("Add User to project: ",this.projectUser)
       this.onAddUserButton(this.projectUser);
+    });
+  }
+
+  openDialogRemove() {
+    const dialogRef = this.dialog.open(RemoveUserDialog, {
+      width: '250px',
+      data: {email: this.email},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+
+      this.projectUser.email = result;
+      this.projectUser.IdProjects = this.selectedProjectId
+      console.log("Add User to project: ",this.projectUser)
+      this.onRemoveUserButton(this.projectUser);
     });
   }
   
@@ -75,6 +88,13 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  onRemoveUserButton(projectUser : ProjectUserAssociation){
+    this._projectService.removeUserToProject(projectUser).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
+  }
+
 
 }
 @Component({
@@ -84,6 +104,20 @@ export class HomeComponent implements OnInit {
 export class AddUserDialog {
   constructor(
     public dialogRef: MatDialogRef<AddUserDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'remove-user-dialog',
+  templateUrl: 'removeUserDialog.html',
+})
+export class RemoveUserDialog {
+  constructor(
+    public dialogRef: MatDialogRef<RemoveUserDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
   onNoClick(): void {

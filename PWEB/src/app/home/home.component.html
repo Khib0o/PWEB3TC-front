@@ -36,11 +36,11 @@
                 <mat-icon>settings</mat-icon>
                 <span>Details Projet</span>
             </button>
-            <button mat-menu-item (click)="openDialog()">
+            <button mat-menu-item (click)="openDialogAdd()">
                 <mat-icon>add</mat-icon>
                 <span>Ajouter un membre</span> <!--Ouverture d'une poppup avec formulaire + Envoie invitation-->
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="openDialogRemove()">
                 <mat-icon>remove</mat-icon>
                 <span>Exclure un membre</span> <!--Requete get des membres du projet dans ouverture de poppup-->
             </button>
