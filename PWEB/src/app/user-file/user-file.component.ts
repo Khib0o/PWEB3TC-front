@@ -68,15 +68,21 @@ export class UserFileComponent implements OnInit {
         console.log('response received is ', response);
     })
 }
-  delete(i:any){
+  delete(element:any){
+    alert(element);
     var idobj={
-      fileid: i.target.id
-    }    
-    this.http.post('/api/deletefiles', idobj)
-    .subscribe((response) => {
-        console.log('response received is ', response);
-        location.reload();
-    })
+      fileid: element
+    };
+    var list=[];
+    list.push(idobj);
+    for (var i = 0; i < list.length; i++)
+    {
+      this.http.post('/api/deletefiles', list[i])
+      .subscribe((response) => {
+          console.log('response received is ', response);
+          location.reload();
+      })
+    }
     
 
   }
