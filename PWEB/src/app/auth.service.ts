@@ -55,6 +55,7 @@ export class AuthService {
   }
 
   registerGoogleAccount(userInfo : UserInfo): Observable<UserInfo> {
+    console.log(userInfo);
     return this.http.post<UserInfo>(this._registerUrl, userInfo, this.httpOptions)
   }
 
