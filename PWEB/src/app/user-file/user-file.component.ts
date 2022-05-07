@@ -69,7 +69,7 @@ export class UserFileComponent implements OnInit {
     })
 }
   delete(element:any){
-    alert(element);
+    //alert(element);
     var idobj={
       fileid: element
     };
