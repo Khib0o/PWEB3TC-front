@@ -37,6 +37,7 @@ export class ProjectService {
   removeUserToProject(IdProject: ProjectUserAssociation):Observable<ProjectUserAssociation> {
     return this.http.post<ProjectUserAssociation>(this._removeUserToProject, IdProject, this.httpOptions);
   }
+  
 
   getMembersOfProject(IdProject: ProjectUserAssociation):Observable<ProjectUserAssociation> {
     return this.http.post<ProjectUserAssociation>(this._getMembersOfProject, IdProject, this.httpOptions);
