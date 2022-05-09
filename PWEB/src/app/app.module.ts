@@ -67,7 +67,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

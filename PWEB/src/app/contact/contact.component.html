@@ -2,7 +2,11 @@
     <div class="container">
       <div class="box"></div>
         <div class="animateOnce">
-            
+            <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+              <label for="emailInput"> Email: </label>
+              <input type="email" id="emailInput" [(ngModel)]="userEmail" name="userEmail">
+              <button type="submit"> Envoyer </button>
+            </form>
 
           
 
