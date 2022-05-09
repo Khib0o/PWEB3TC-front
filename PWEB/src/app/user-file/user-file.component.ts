@@ -74,5 +74,24 @@ export class UserFileComponent implements OnInit {
 
 
 }
+delete(element:any){
+    for (var i = 0; i < element.length; i++)
+    {
+      var fileid=element[i].value.IdFile;
+      var idobj={
+        fileid: fileid
+      };
+      this.http.post('/api/deletefiles', idobj)
+      .subscribe((response) => {
+          console.log('response received is ', response);
+          location.reload();
+      })
+    }  
+
+  }
+
+  show(element:any){
+    console.dir(element[0].value);
+  }
 
 }
