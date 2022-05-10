@@ -42,6 +42,10 @@ export class UserFileComponent implements OnInit {
     */
   }
 
+  func(name:any){	
+    window.location.href = "http://localhost:3000/api/download/" + name;
+  }
+
   createFile() {
     this.fileService.createFile(this.FileData).subscribe({
       next: (res) => {
@@ -69,15 +73,18 @@ export class UserFileComponent implements OnInit {
       res=>console.log(res),
       err=>console.log(err)
     ) 
-      
-
-
-
 }
+
+  download(){
+    console.log('working');
+    this.fileService.downloadFile();
+  }
+
+
 delete(element:any){
     for (var i = 0; i < element.length; i++)
     {
-      var fileid=element[i].value.IdFile;
+      var fileid=element[i].value.id;
       var idobj={
         fileid: fileid
       };
@@ -93,5 +100,11 @@ delete(element:any){
   show(element:any){
     console.dir(element[0].value);
   }
+
+  
+  refresh(): void {
+    window.location.reload();
+}
+
 
 }
