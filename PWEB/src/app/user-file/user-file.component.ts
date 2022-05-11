@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService, UserFile } from '../file.service';
 import { HttpClient} from '@angular/common/http';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-user-file',
@@ -69,9 +70,11 @@ export class UserFileComponent implements OnInit {
     formData.append('name',this.uploadedFiles.name);
     console.log(this.uploadedFiles);
 
-    this.fileService.upload(formData).subscribe(
+    this.fileService.upload(formData).pipe(debounceTime(3000)).subscribe(
       res=>console.log(res),
-      err=>console.log(err)
+      err=>console.log("erreur à fix"),
+      ()=> this.refresh
+
     ) 
 }
 
@@ -103,7 +106,10 @@ delete(element:any){
 
   
   refresh(): void {
-    window.location.reload();
+    setTimeout(function() {
+      window.location.reload();
+    }, 500);
+    
 }
 
 
