@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AddUserDialog, HomeComponent, RemoveUserDialog } from './home/home.component';
+import { AddUserDialog, CreateProjectDialog, HomeComponent, RemoveUserDialog } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
@@ -53,7 +53,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProfileComponent,
     ContentMyPageComponent,
     AddUserDialog,
-    RemoveUserDialog
+    RemoveUserDialog,
+    CreateProjectDialog
   ],
   imports: [
     BrowserModule,

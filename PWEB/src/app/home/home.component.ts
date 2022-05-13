@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
+import { NewProject } from '../models/NewProject';
 import { Project } from '../models/project';
 import { ProjectUserAssociation } from '../models/project-user-association';
 import { ProjectService } from '../project.service';
@@ -8,6 +11,11 @@ import { ProjectService } from '../project.service';
 export interface DialogData {
   email: string;
   IdProjects: number;
+}
+
+export interface DialogData1 {
+  ProjectName: string;
+  Users: string;
 }
 
 @Component({
@@ -31,6 +39,13 @@ export class HomeComponent implements OnInit {
     "IdProjects": 0
   }
 
+  test: NewProject = {
+    "name": "",
+    "users": "",
+    "tokenOwner": ""
+  };
+
+
   constructor(
     private _projectService: ProjectService,
     public dialog: MatDialog
@@ -52,6 +67,25 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  openDialogProjectCreate() {
+
+    const dialogRef = this.dialog.open(CreateProjectDialog, {
+      width: '250px',
+      data :{name: this.email}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result:`+result);
+
+
+      this.test.name = result.ProjectName;
+      this.test.users = result.Users;
+      this.test.tokenOwner = localStorage.getItem('token');
+
+      this._projectService.createNewProject(this.test).subscribe(res =>console.log(res), err => console.log(err));
+    });
+  }
+
   openDialogRemove() {
     const dialogRef = this.dialog.open(RemoveUserDialog, {
       width: '250px',
@@ -67,10 +101,6 @@ export class HomeComponent implements OnInit {
       this.onRemoveUserButton(this.projectUser);
     });
   }
-  
-
-  
-
 
   /*
   projets = [
@@ -132,6 +162,20 @@ export class RemoveUserDialog {
   constructor(
     public dialogRef: MatDialogRef<RemoveUserDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'create-project-dialog',
+  templateUrl: 'CreateProjectDialog.html',
+})
+export class CreateProjectDialog {
+  constructor(
+    public dialogRef: MatDialogRef<CreateProjectDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData1,
   ) {}
   onNoClick(): void {
     this.dialogRef.close();
