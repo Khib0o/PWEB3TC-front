@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService, UserFile } from '../file.service';
 import { HttpClient} from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-file',
@@ -21,7 +22,7 @@ export class UserFileComponent implements OnInit {
     size:''
   }
 
-  constructor(private fileService: FileService, private http : HttpClient) {
+  constructor(private fileService: FileService, private http : HttpClient, private _auth: AuthService) {
 
   }
 
@@ -74,12 +75,14 @@ export class UserFileComponent implements OnInit {
 
 
 }
+
+
 delete(element:any){
     for (var i = 0; i < element.length; i++)
     {
-      var fileid=element[i].value.IdFile;
+      var fileid=element[i].value.id;
       var idobj={
-        fileid: fileid
+        "fileid": fileid
       };
       this.http.post('/api/deletefiles', idobj)
       .subscribe((response) => {
