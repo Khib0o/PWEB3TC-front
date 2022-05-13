@@ -13,18 +13,12 @@
                 <img routerLink="" class="logo" src="/assets/logo.png">
                 <button mat-flat-button >Profil</button>
 
-                <button mat-flat-button (click)="openDialogProjectCreate()"> Nouveau Projet </button>
-                <button mat-flat-button *ngFor="let project of projets$| async"> {{project.Name}} </button>
-
                 <mat-form-field appearance="fill">
                 <mat-label>Vos Projet</mat-label>
-
                 <select matNativeControl required [(ngModel)]="selectedProjectId">
-                    <option >New Project</option>
+                    <option >Aucun Projet</option>
                     <option *ngFor="let projet of projets$ | async" [ngValue]="projet.IdProjects"> {{projet.Name}} </option>
                 </select>
-
-
                 </mat-form-field>
 
                 <button mat-flat-button >Groupes</button>
