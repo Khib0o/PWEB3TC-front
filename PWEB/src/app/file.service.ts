@@ -30,13 +30,19 @@ export class FileService {
   httpOptions2 = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.auth.getToken()}`,
+      'Authorization': `${this.auth.getToken()}`,
+   })
+  }
+
+  httpOptionsToken = {
+    headers: new HttpHeaders({ 
+      'Authorization': `${this.auth.getToken()}`,
    })
   }
 
   getFile() {
     console.log(this.http.get<any[]>(this._fileURL));
-    return this.http.get<any[]>(this._fileURL);
+    return this.http.get<any[]>(this._fileURL, this.httpOptionsToken);
   }
 
   createFile(file : UserFile) {
@@ -50,7 +56,7 @@ export class FileService {
   }
 
   upload(formData:FormData):Observable<FormData>{
-    return this.http.post<FormData>(this._fileUpload,formData);
+    return this.http.post<FormData>(this._fileUpload,formData, this.httpOptionsToken);
   }
 
   downloadFile(){

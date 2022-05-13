@@ -64,4 +64,5 @@ export class AuthService {
     console.log("Mon token: ",this.getToken());
     return this.http.get<any>(this._getUserInfoUrl, this.httpOptionsToken);
   }
+
 }
