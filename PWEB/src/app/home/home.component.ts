@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   email!: string;
   IdProjects!: number;
   selectedProjectId!: number;
+  isProject!: boolean;
   
   projectUser: ProjectUserAssociation = {
     "email": "",
@@ -48,6 +49,7 @@ export class HomeComponent implements OnInit {
     private _projectService: ProjectService,
     public dialog: MatDialog
   ){}
+
 
   openDialogAdd() {
     const dialogRef = this.dialog.open(AddUserDialog, {

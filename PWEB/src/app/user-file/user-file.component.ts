@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FileService, UserFile } from '../file.service';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { FileService, ProjectInfo, UserFile } from '../file.service';
 import { HttpClient} from '@angular/common/http';
-import { debounceTime } from 'rxjs';
+import { debounceTime, map } from 'rxjs';
 import { AuthService } from '../auth.service';
+import { SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-user-file',
@@ -10,7 +11,10 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./user-file.component.css']
 })
 
-export class UserFileComponent implements OnInit {
+export class UserFileComponent implements OnChanges {
+  @Input() selectedProjectId: number = 0;
+
+
   uploadedFiles!: File;
   FileUpload = {
     fieldname: '',
@@ -27,35 +31,35 @@ export class UserFileComponent implements OnInit {
 
   }
 
-  sharedFiles = this.fileService.getFile().pipe(
-    
-  );
-
-  FileData = {
-    filename: '',
-    type: ''
+  currentProjectInfo : ProjectInfo = {
+    "selectedProjectId" : 0
   }
 
-  ngOnInit(): void {
-    /*
-    this.http.post<any>('http://http://localhost:3333', { title: 'Angular POST Request Example' }).subscribe(data => {
-        this.FileUpload
-    })
-    */
+
+
+  sharedFiles!: any;
+  idString : string = "";
+  
+
+  
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes['selectedProjectId'].currentValue);
+    this.currentProjectInfo.selectedProjectId = changes['selectedProjectId'].currentValue;
+    this.fileService.getFile(this.currentProjectInfo).pipe(
+
+    ).subscribe(
+      res => { this.sharedFiles = res },
+      err => console.log(err)
+    );
+
+    console.log("SharedFiles: ", this.sharedFiles)
   }
 
   func(name:any){	
     window.location.href = "http://localhost:3000/api/download/" + name;
   }
 
-  createFile() {
-    this.fileService.createFile(this.FileData).subscribe({
-      next: (res) => {
-        console.log(res)
-      },
-      error: (err) => {console.log(err)}
-    })
-  }
 
   fileChange(element:any) {
     this.uploadedFiles = element.target.files[0];
@@ -69,12 +73,14 @@ export class UserFileComponent implements OnInit {
     var formData = new FormData();
     formData.append('file',this.uploadedFiles);
     formData.append('name',this.uploadedFiles.name);
-    console.log(this.uploadedFiles);
+    this.idString = this.currentProjectInfo.selectedProjectId.toString(); 
+    formData.append('IdProjects', this.idString);
+    console.log(formData);
 
     this.fileService.upload(formData).pipe(debounceTime(3000)).subscribe(
       res=>console.log(res),
       err=>console.log("erreur à fix"),
-      ()=> this.refresh
+      //()=> this.refresh
 
     ) 
 }
@@ -111,7 +117,7 @@ delete(element:any){
   
   refresh(): void {
     setTimeout(function() {
-      window.location.reload();
+      //window.location.reload();
     }, 500);
     
 }

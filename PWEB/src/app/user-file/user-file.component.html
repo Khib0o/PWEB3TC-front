@@ -50,7 +50,7 @@
                 <button  mat-raised-button color="primary" (click)="show(files.selectedOptions.selected);"> Modifier </button>
                 <button mat-raised-button color="warn" (click)="delete(files.selectedOptions.selected);"> Supprimer </button>
             </mat-action-list>
-            <mat-list-option *ngFor="let file of sharedFiles |async" [value]="file" >
+            <mat-list-option *ngFor="let file of sharedFiles" [value]="file">
                 <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
                 <div mat-line style="color: rgb(63, 159, 214);"> {{file.name}}</div>
                 
@@ -62,6 +62,7 @@
         </mat-selection-list>
         <p>
             Files selected: {{files.selectedOptions.selected.length}}
+            Id project selected : {{selectedProjectId}}
         </p>
     </mat-list>
 

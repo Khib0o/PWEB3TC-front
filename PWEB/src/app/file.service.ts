@@ -5,9 +5,14 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 
+
 export interface UserFile {
   filename : string;
   type : string;
+}
+
+export class ProjectInfo {
+  selectedProjectId!: number;
 }
 
 @Injectable({
@@ -40,9 +45,9 @@ export class FileService {
    })
   }
 
-  getFile() {
-    console.log(this.http.get<any[]>(this._fileURL));
-    return this.http.get<any[]>(this._fileURL, this.httpOptionsToken);
+  getFile(project : ProjectInfo) {
+    console.log(project);
+    return this.http.post<any[]>(this._fileURL, project  ,this.httpOptionsToken);
   }
 
   createFile(file : UserFile) {
