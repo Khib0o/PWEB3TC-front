@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { Project } from './models/project';
 import { Observable } from 'rxjs';
 import { ProjectUserAssociation } from './models/project-user-association';
+import { NewProject } from './models/NewProject';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,13 @@ export class ProjectService {
 
   getMembersOfProject(IdProject: ProjectUserAssociation):Observable<ProjectUserAssociation> {
     return this.http.post<ProjectUserAssociation>(this._getMembersOfProject, IdProject, this.httpOptions);
+  }
+
+  createNewProject(projet :NewProject):Observable<NewProject> {
+
+    var myProject = {"name": projet.name, "users":projet.users,"tokenOwner":''+projet.tokenOwner}
+
+    return this.http.post<NewProject>("http://localhost:3000/api/createNewProject", myProject, this.httpOptions);
   }
 
 }

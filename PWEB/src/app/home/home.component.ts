@@ -4,10 +4,17 @@ import { Observable } from 'rxjs';
 import { Project } from '../models/project';
 import { ProjectUserAssociation } from '../models/project-user-association';
 import { ProjectService } from '../project.service';
+import { AuthService } from '../auth.service';
+import { NewProject } from '../models/NewProject';
 
 export interface DialogData {
   email: string;
   IdProjects: number;
+}
+
+export interface DialogData1 {
+  ProjectName: string;
+  Users: string;
 }
 
 @Component({
@@ -25,6 +32,12 @@ export class HomeComponent implements OnInit {
     "email": "",
     "IdProjects": 0
   }
+
+  test: NewProject = {
+    "name": "",
+    "users": "",
+    "tokenOwner": ""
+  };
 
   selectedProjectIdJson: ProjectUserAssociation = {
     "email": "",
@@ -49,6 +62,25 @@ export class HomeComponent implements OnInit {
       this.projectUser.IdProjects = this.selectedProjectId
       console.log("Add User to project: ",this.projectUser)
       this.onAddUserButton(this.projectUser);
+    });
+  }
+
+  openDialogProjectCreate() {
+
+    const dialogRef = this.dialog.open(CreateProjectDialog, {
+      width: '250px',
+      data :{name: this.email}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result:`+result);
+
+
+      this.test.name = result.ProjectName;
+      this.test.users = result.Users;
+      this.test.tokenOwner = localStorage.getItem('token');
+
+      this._projectService.createNewProject(this.test).subscribe(res =>console.log(res), err => console.log(err));
     });
   }
 
@@ -118,6 +150,20 @@ export class AddUserDialog {
   constructor(
     public dialogRef: MatDialogRef<AddUserDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'create-project-dialog',
+  templateUrl: 'CreateProjectDialog.html',
+})
+export class CreateProjectDialog {
+  constructor(
+    public dialogRef: MatDialogRef<CreateProjectDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData1,
   ) {}
   onNoClick(): void {
     this.dialogRef.close();
