@@ -20,6 +20,10 @@
                 <mat-label>Vos Projet</mat-label>
 
                 <select matNativeControl required [(ngModel)]="selectedProjectId">
+<<<<<<< Updated upstream
+=======
+                    <option >Aucun Projet</option>
+>>>>>>> Stashed changes
                     <option >New Project</option>
                     <option *ngFor="let projet of projets$ | async" [ngValue]="projet.IdProjects"> {{projet.Name}} </option>
                 </select>

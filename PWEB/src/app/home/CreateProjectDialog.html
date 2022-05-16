@@ -6,6 +6,7 @@
 <mat-label>Utilisateurs</mat-label>
 <input type="text" [(ngModel)]="data.Users">
 
+<<<<<<< Updated upstream
 <mat-label>{{data.Users}}</mat-label>
 
 <div mat-dialog-actions>
@@ -13,3 +14,9 @@
     <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Créer</button>
 </div>
 
+=======
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Créer</button>
+</div>
+>>>>>>> Stashed changes

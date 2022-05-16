@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TestBed } from '@angular/core/testing';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { NewProject } from '../models/NewProject';
@@ -45,7 +46,10 @@ export class HomeComponent implements OnInit {
     "tokenOwner": ""
   };
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   constructor(
     private _projectService: ProjectService,
     public dialog: MatDialog
@@ -148,6 +152,20 @@ export class AddUserDialog {
   constructor(
     public dialogRef: MatDialogRef<AddUserDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'create-project-dialog',
+  templateUrl: 'CreateProjectDialog.html',
+})
+export class CreateProjectDialog {
+  constructor(
+    public dialogRef: MatDialogRef<CreateProjectDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData1,
   ) {}
   onNoClick(): void {
     this.dialogRef.close();

@@ -4,7 +4,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+<<<<<<< Updated upstream
 import { AddUserDialog, CreateProjectDialog, HomeComponent, RemoveUserDialog } from './home/home.component';
+=======
+import { AddUserDialog,CreateProjectDialog, HomeComponent, RemoveUserDialog } from './home/home.component';
+>>>>>>> Stashed changes
 import { HeaderComponent } from './header/header.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav'; 

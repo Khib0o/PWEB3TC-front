@@ -24,7 +24,8 @@ export class ProjectService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json', 
-      'Authorization': `${this.auth.getToken()}`
+      'Authorization': `${this.auth.getToken()}`,
+      'Access-Control-Allow-Origin':'*'
    })
   }
 
@@ -46,6 +47,7 @@ export class ProjectService {
 
   createNewProject(projet :NewProject):Observable<NewProject> {
 
+<<<<<<< Updated upstream
     var myProject = {"name": projet.name, "users":projet.users,"tokenOwner":"00000"}
 
     var myProject = {"name": projet.name, "users":projet.users,"tokenOwner":''+projet.tokenOwner}
@@ -56,6 +58,9 @@ export class ProjectService {
         'Authorization': `${this.auth.getToken()}`,
      })
     }
+=======
+    var myProject = {"name": projet.name, "users":projet.users,"tokenOwner":''+projet.tokenOwner}
+>>>>>>> Stashed changes
 
     return this.http.post<NewProject>("http://localhost:3000/api/createNewProject", myProject, this.httpOptions);
   }
