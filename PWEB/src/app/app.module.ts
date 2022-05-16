@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { AddUserDialog, HomeComponent, RemoveUserDialog } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
@@ -31,6 +31,7 @@ import { FooterComponent } from './home-page/footer/footer.component';
 import { ProfileComponent } from './home-page/profile/profile.component';
 import { ContentMyPageComponent } from './home-page/content-mypage/content-mypage.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -50,7 +51,9 @@ import { MatSelectModule } from '@angular/material/select';
     TaskComponent,
     FooterComponent,
     ProfileComponent,
-    ContentMyPageComponent
+    ContentMyPageComponent,
+    AddUserDialog,
+    RemoveUserDialog
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatMenuModule,
     MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

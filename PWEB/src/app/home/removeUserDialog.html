@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Exclure {{data.email}} </h1>
+
+<mat-label>Email</mat-label>
+<input type="text" [(ngModel)]="data.email">
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.email" cdkFocusInitial>Ok</button>
+</div>

@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+
+export class contactInfo {
+  email!: string
+  title!: string
+  description!: string
+}
 
 @Component({
   selector: 'app-contact',
@@ -8,15 +15,32 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  userEmail!: string;
+  ourForm!: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.ourForm = this.formBuilder.group({
+      email : [null, Validators.required],
+      title : [null, Validators.required],
+      description : [null, Validators.required]
+    });
   }
 
-  onSubmitForm(form: NgForm) {
-    console.log(form.value);
+
+  myContactInfo: contactInfo = {
+    "email": "",
+    "title": "",
+    "description": ""
+  };
+
+
+  onSubmitForm(): void {
+    console.log(this.myContactInfo);
+    this.auth.sendContactInfo(this.myContactInfo).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
   }
 
 }

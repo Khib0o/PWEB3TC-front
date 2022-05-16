@@ -17,6 +17,26 @@
         animation: anime 1s normal forwards ease-in-out;
     }
 
+    .form-group {
+      margin: 10px auto;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    input, textarea {
+      width: 50%;
+    }
+
+    .action-buttons {
+      width: 100%;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+    }
 
   @keyframes anime {
     0% {

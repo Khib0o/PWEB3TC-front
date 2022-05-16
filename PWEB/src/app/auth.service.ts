@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { UserInfo } from './models/user-info';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
+import { contactInfo } from './contact/contact.component';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class AuthService {
   private _registerUrl = "http://localhost:3000/api/register"
   private _loginUrl = "http://localhost:3000/api/login"
   private _getUserInfoUrl = "http://localhost:3000/api/getUser"
+  private _sendContactInfo = "http://localhost:3000/api/sendContactInfo"
 
   constructor(
     private http: HttpClient,
@@ -55,6 +58,7 @@ export class AuthService {
   }
 
   registerGoogleAccount(userInfo : UserInfo): Observable<UserInfo> {
+    console.log(userInfo);
     return this.http.post<UserInfo>(this._registerUrl, userInfo, this.httpOptions)
   }
 
@@ -62,5 +66,11 @@ export class AuthService {
   getUserInfo() {
     console.log("Mon token: ",this.getToken());
     return this.http.get<any>(this._getUserInfoUrl, this.httpOptionsToken);
+  }
+
+  //Envoyer le formulaire de contact à la base de données
+  sendContactInfo(formData: contactInfo) {
+    console.log(formData);
+    return this.http.post<contactInfo> (this._sendContactInfo, formData);
   }
 }

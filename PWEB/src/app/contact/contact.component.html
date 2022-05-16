@@ -2,13 +2,23 @@
     <div class="container">
       <div class="box"></div>
         <div class="animateOnce">
-            <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
-              <label for="emailInput"> Email: </label>
-              <input type="email" id="emailInput" [(ngModel)]="userEmail" name="userEmail">
-              <button type="submit"> Envoyer </button>
-            </form>
-
-          
+          <form [formGroup]="ourForm">
+            <div class="form-group">
+              <label for="emailInput">Email</label>
+              <input type="email" id="emailInput" formControlName="email" [(ngModel)]="myContactInfo.email">
+            </div>
+            <div class="form-group">
+              <label for="title">Titre</label>
+              <input type="text" id="title" formControlName="title" [(ngModel)]="myContactInfo.title">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" id="description" formControlName="description" rows="4" [(ngModel)]="myContactInfo.description"></textarea>
+            </div>
+            <div class="action-buttons">
+              <button type="submit" (click)="onSubmitForm()" [disabled]="ourForm.invalid">Envoyer</button>
+            </div>
+          </form>
 
         </div>
     </div>
