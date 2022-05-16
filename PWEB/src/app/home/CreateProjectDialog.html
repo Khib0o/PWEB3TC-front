@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Ajouter</h1>
+
+<mat-label>Nom du projet</mat-label>
+<input type="text" [(ngModel)]="data.ProjectName">
+
+<mat-label>Utilisateurs</mat-label>
+<input type="text" [(ngModel)]="data.Users">
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Créer</button>
+</div>

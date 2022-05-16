@@ -17,6 +17,7 @@ export class FileService {
   private _fileURL = "http://localhost:3000/api/files" //recupère les données depuis le serveur
   private _fileLoad = "http://localhost:3000"
   private _fileUpload = "http://localhost:3000/api/upload"
+  private _fileDownload = "http://localhost:3000/api/download"
 
   httpOptions = {
     headers: new HttpHeaders({ 
@@ -26,9 +27,22 @@ export class FileService {
    })
   }
 
+  httpOptions2 = {
+    headers: new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': `${this.auth.getToken()}`,
+   })
+  }
+
+  httpOptionsToken = {
+    headers: new HttpHeaders({ 
+      'Authorization': `${this.auth.getToken()}`,
+   })
+  }
+
   getFile() {
     console.log(this.http.get<any[]>(this._fileURL));
-    return this.http.get<any[]>(this._fileURL);
+    return this.http.get<any[]>(this._fileURL, this.httpOptionsToken);
   }
 
   createFile(file : UserFile) {
@@ -42,14 +56,21 @@ export class FileService {
   }
 
   upload(formData:FormData):Observable<FormData>{
-    return this.http.post<FormData>(this._fileUpload,formData);
+    return this.http.post<FormData>(this._fileUpload,formData, this.httpOptionsToken);
   }
 
+  downloadFile(){
+    console.log("ça marche");
+    
+    //return this.http.post<File>(this._fileDownload,{name : "pog.jpg"},this.httpOptions2);
+    return this.http.post<any>(this._fileDownload,this.httpOptions2);
+  }
+
+  /*getDown(){
+    return this.http.get<any>(this._fileDownload,this.httpOptions2);
+  }*/
+
   
-
-
-
-
 
   constructor(private http : HttpClient, private auth: AuthService) { }
 }
