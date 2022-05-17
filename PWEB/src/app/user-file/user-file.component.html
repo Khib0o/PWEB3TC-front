@@ -4,7 +4,7 @@
     <div class="mainContainer">
       <div class="content">
           <div class="header">
-              <h1 style="color: rgb(67, 109, 234);" class="up">Upload a file</h1>
+              <h4 style="color: rgb(67, 109, 234);" class="up">Upload un fichier :</h4>
           </div>
           <div class="row margin25">
     
@@ -13,21 +13,18 @@
               </div>
               <div class="col-md-4">
                   <div class="input-group">
-                      <div class="input-group-prepend">
-                          <button class="input-group-text upload" (click)="upload()" (click)="refresh()" id="btnUpload">Upload</button>
-                      </div>
+                    
                       <div class="test">
-                        <button (click)="download()">test</button>
-                        <a href="http://localhost:3000/api/download/pog.jpg">
-                            <button>Click to Download</button> 
-                        </a>
                     </div>
                       <div class="custom-file">
                           <form action="/api/upload" method="post" enctype="multipart/form-data">
-                              <input (change)="fileChange($event)"  type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                              <input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                           </form>
-                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          <div class="input-group-prepend">
+                            <button mat-raised-button color="primary" class="input-group-text upload" (click)="upload()" (click)="refresh()" id="btnUpload">Upload</button>
+                        </div>
                       </div>
+                      
                   </div>
               </div>
               <div class="col-md-4">
@@ -44,10 +41,10 @@
             <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
             <div mat-line style="color: rgb(255, 255, 255);"> {{file.Name}}</div>
             <div mat-line style="color: rgb(98, 98, 114);"> {{file.DateLastModif | date:'medium'}}</div>
+            
         </mat-list-item>-->
         <mat-selection-list #files>
             <mat-action-list>
-                <button  mat-raised-button color="primary" (click)="show(files.selectedOptions.selected);"> Modifier </button>
                 <button mat-raised-button color="warn" (click)="delete(files.selectedOptions.selected);"> Supprimer </button>
             </mat-action-list>
             <mat-list-option *ngFor="let file of sharedFiles |async" [value]="file" >

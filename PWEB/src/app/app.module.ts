@@ -32,6 +32,8 @@ import { ProfileComponent } from './home-page/profile/profile.component';
 import { ContentMyPageComponent } from './home-page/content-mypage/content-mypage.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+
 
 
 @NgModule({
@@ -72,7 +74,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatMenuModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -87,9 +87,9 @@ export class SignInComponent implements OnInit {
 
 
 
-        this._router.navigate(['/functionality/user-file'])
+        this._router.navigate(['/functionality'])
           .then(() => {
-            //window.location.reload();
+            window.location.reload();
         });
         
        /* Write Your Code Here */

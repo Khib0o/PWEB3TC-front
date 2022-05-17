@@ -61,11 +61,12 @@ export class FileService {
 
   downloadFile(){
     console.log("ça marche");
-    
-    //return this.http.post<File>(this._fileDownload,{name : "pog.jpg"},this.httpOptions2);
     return this.http.post<any>(this._fileDownload,this.httpOptions2);
   }
 
+  downloadMore(){
+    return this.http.post<any>(this._fileDownload,this.httpOptions2);
+  }
   /*getDown(){
     return this.http.get<any>(this._fileDownload,this.httpOptions2);
   }*/
