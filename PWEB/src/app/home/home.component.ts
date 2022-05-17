@@ -6,6 +6,7 @@ import { ProjectUserAssociation } from '../models/project-user-association';
 import { ProjectService } from '../project.service';
 import { AuthService } from '../auth.service';
 import { NewProject } from '../models/NewProject';
+import { UserInfo } from '../models/user-info';
 
 export interface DialogData {
   email: string;
@@ -52,8 +53,11 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _projectService: ProjectService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _auth: AuthService
   ){}
+
+  myProfile!: any;
 
 
   openDialogAdd() {
@@ -82,12 +86,26 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result:`+result);
 
-
+      /*
       this.test.name = result.ProjectName;
       this.test.users = result.Users;
       this.test.tokenOwner = localStorage.getItem('token');
 
       this._projectService.createNewProject(this.test).subscribe(res =>console.log(res), err => console.log(err));
+      */
+      this._auth.getUserInfo().subscribe(
+        res => {
+          console.log(res[0].email);
+          //this.onAddUserButton({"email": res[0].email , "IdProjects": this.selectedProjectId})
+          this.test.name = result.ProjectName;
+          this.test.users = result.Users +","+res[0].email;
+          this.test.tokenOwner = localStorage.getItem('token');
+
+          this._projectService.createNewProject(this.test).subscribe(res =>console.log(res), err => console.log(err));
+        },
+        err => console.log(err)
+      );
+      
     });
   }
 
@@ -123,6 +141,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.projets$ = this._projectService.getProjectbyUser();
+    this.selectedProjectId = 0;
   }
 
   onAddUserButton(projectUser : ProjectUserAssociation){
