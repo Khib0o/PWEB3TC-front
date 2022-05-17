@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit {
         err => console.log(err) 
       );
       
+      this.refresh();
     });
   }
 
@@ -164,6 +165,13 @@ export class HomeComponent implements OnInit {
       res => console.log(res),
       err => console.log(err)
     )
+  }
+
+  refresh(): void {
+    setTimeout(function() {
+      window.location.reload();
+    }, 1500);
+    
   }
 
 

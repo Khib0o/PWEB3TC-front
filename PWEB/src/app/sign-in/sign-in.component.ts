@@ -75,9 +75,9 @@ export class SignInComponent implements OnInit {
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
-        localStorage.setItem('token', googleAuthUser.getAuthResponse().id_token)
+        localStorage.setItem('token', profile.getId())
         
-        this.userInfo.token = googleAuthUser.getAuthResponse().id_token;
+        this.userInfo.token = profile.getId();
         this.userInfo.id = profile.getId();
         this.userInfo.name = profile.getName();
         this.userInfo.url = profile.getImageUrl();
@@ -89,7 +89,7 @@ export class SignInComponent implements OnInit {
 
         this._router.navigate(['/functionality'])
           .then(() => {
-            window.location.reload();
+            this.refresh()
         });
         
        /* Write Your Code Here */
@@ -153,6 +153,13 @@ export class SignInComponent implements OnInit {
     this.http.get('http://localhost:3333/api/users', {observe: 'response',responseType: 'json'})
     .subscribe(data => console.log(data))
 
+  }
+
+  refresh(): void {
+    setTimeout(function() {
+      window.location.reload();
+    }, 1500);
+    
   }
   
   /*

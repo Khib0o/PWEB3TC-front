@@ -132,7 +132,7 @@ export class UserFileComponent implements OnChanges {
   refresh(): void {
     setTimeout(function() {
       window.location.reload();
-    }, 500);
+    }, 1000);
     
   }
 
