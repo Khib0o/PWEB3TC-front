@@ -18,7 +18,9 @@
     }
 
     .form-group {
-      margin: 10px auto;
+      margin-top: 6%;
+      margin-left: 5%;
+      margin-right: 5%;
       width: 80%;
       display: flex;
       align-items: center;
