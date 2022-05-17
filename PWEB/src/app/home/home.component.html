@@ -20,7 +20,7 @@
                 <mat-label>Vos Projet</mat-label>
 
                 <select matNativeControl required [(ngModel)]="selectedProjectId">
-                    <option [selected]="0" [ngValue]=0>Aucun Projet</option>
+                    <option [selected]="0" [ngValue]=0>Espace Personnel</option>
                     <option *ngFor="let projet of projets$ | async" [ngValue]="projet.IdProjects"> {{projet.Name}} </option>
                 </select>
 
