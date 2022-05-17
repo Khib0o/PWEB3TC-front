@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit {
 
           this._projectService.createNewProject(this.test).subscribe(res =>console.log(res), err => console.log(err));
         },
-        err => console.log(err)
+        err => console.log(err) 
       );
       
     });
