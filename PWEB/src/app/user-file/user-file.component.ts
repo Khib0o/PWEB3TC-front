@@ -4,6 +4,8 @@ import { HttpClient} from '@angular/common/http';
 import { debounceTime, map } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { SimpleChanges } from '@angular/core';
+import { waitForAsync } from '@angular/core/testing';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-file',
@@ -56,9 +58,27 @@ export class UserFileComponent implements OnChanges {
     console.log("SharedFiles: ", this.sharedFiles)
   }
 
+  alertUpload(){
+    var inputFile = document.getElementById('inputGroupFile01');
+    if(inputFile?.isDefaultNamespace.length==0){
+      alert('Please choose a file first');
+    }
+    //alert("UPLOAD DONE !");
+  }
+
   func(name:any){	
     window.location.href = "http://localhost:3000/api/download/" + name;
   }
+
+  downloadMore(element:any){
+    for (var i = 0; i < element.length; i++){
+      window.location.href = "http://localhost:3000/api/download/" + element[i].value.name;
+      this.refresh;
+    }
+  }
+
+
+
 
 
   fileChange(element:any) {
@@ -66,10 +86,9 @@ export class UserFileComponent implements OnChanges {
     console.log(this.uploadedFiles);
   }
 
-
-
   upload() {
-    console.log(this.uploadedFiles.name);
+
+    
     var formData = new FormData();
     formData.append('file',this.uploadedFiles);
     formData.append('name',this.uploadedFiles.name);
@@ -86,13 +105,8 @@ export class UserFileComponent implements OnChanges {
 }
 
   download(){
-    console.log('working');
     this.fileService.downloadFile();
   }
-
-
-
-
 
 delete(element:any){
     for (var i = 0; i < element.length; i++)

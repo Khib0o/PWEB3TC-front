@@ -11,13 +11,11 @@
         <mat-drawer #drawer mode="side" opened class="sidenav">
             <div class="grid-container">
                 <img routerLink="" class="logo" src="/assets/logo.png">
-                <button mat-flat-button >Profil</button>
-
                 <button mat-flat-button (click)="openDialogProjectCreate()"> Nouveau Projet </button>
                 <button mat-flat-button *ngFor="let project of projets$| async"> {{project.Name}} </button>
 
                 <mat-form-field appearance="fill">
-                <mat-label>Vos Projet</mat-label>
+                <mat-label>Vos Projets</mat-label>
 
                 <select matNativeControl required [(ngModel)]="selectedProjectId">
                     <option [selected]="0" [ngValue]=0>Espace Personnel</option>
@@ -27,15 +25,16 @@
 
                 </mat-form-field>
 
-                <button mat-flat-button >Groupes</button>
-                <button mat-flat-button routerLink="/functionality/user-file">Fichiers</button>
+                
+                <button mat-flat-button routerLink="/functionality/user-file">Tous mes fichiers</button>
             </div>
         </mat-drawer>
 
         
 
         <mat-drawer-content class="contentPage">
-            <p> Projet selectioné: {{ selectedProjectId }} </p>
+            <h1>Gestion de projet</h1>
+            <p> Projet selectionné: {{ selectedProjectId }} </p>
             <button mat-button class="parameter-button" [matMenuTriggerFor]="menuProjet" *ngIf="selectedProjectId">Paramètres Projets</button>
             <mat-menu #menuProjet="matMenu">
             <button mat-menu-item>
