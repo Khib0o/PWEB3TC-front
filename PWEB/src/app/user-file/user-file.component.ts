@@ -99,7 +99,7 @@ export class UserFileComponent implements OnChanges {
     this.fileService.upload(formData).pipe(debounceTime(3000)).subscribe(
       res=>console.log(res),
       err=>console.log("erreur à fix"),
-      //()=> this.refresh
+      ()=> this.refresh
 
     ) 
 }
@@ -131,7 +131,7 @@ delete(element:any){
   
   refresh(): void {
     setTimeout(function() {
-      //window.location.reload();
+      window.location.reload();
     }, 500);
     
 }
