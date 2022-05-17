@@ -38,12 +38,14 @@
     button {
       display: block;
       margin: 20px auto;
+      align-items: center;
+      margin-top: 6%;
     }
 
   @keyframes anime {
     0% {
-      width: 60px;
-      height: 60px;
+      width: 120px;
+      height: 300px;
       background: #f0f0f0;
       box-shadow:  0 0 0 #cccccc,
                    0 0 0 #ffffff,
@@ -51,8 +53,8 @@
                     -10px -10px 10px #ffffff inset;
     }
     25% {
-      width: 60px;
-      height: 60px;
+      width: 120px;
+      height: 300px;
       background: #f8f8f8;
       box-shadow:  10px 10px 10px #cccccc,
                    10px 10px 10px #ffffff,
@@ -60,8 +62,8 @@
                    0 0 0 #ffffff inset;
     }
     50% {
-      width: 60px;
-      height: 240px;
+      width: 120px;
+      height: 550px;
       background: #f8f8f8;
       box-shadow:  10px 10px 10px #cccccc,
                    10px 10px 10px #ffffff,
@@ -70,8 +72,8 @@
     }
 
     100% {
-      width: 520px;
-      height: 260px;
+      width: 1040px;
+      height: 600px;
       background: #fafafa;
       box-shadow:  40px 40px 40px #cccccc,
                    0 0 0 #ffffff,
