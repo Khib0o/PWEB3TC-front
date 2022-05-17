@@ -17,6 +17,11 @@ export interface DialogData1 {
   Users: string;
 }
 
+export interface DialogData {
+  email: string;
+  IdProjects: number;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
