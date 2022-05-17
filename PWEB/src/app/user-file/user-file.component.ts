@@ -108,7 +108,7 @@ export class UserFileComponent implements OnChanges {
     this.fileService.downloadFile();
   }
 
-delete(element:any){
+  delete(element:any){
     for (var i = 0; i < element.length; i++)
     {
       var fileid=element[i].value.id;
@@ -134,25 +134,6 @@ delete(element:any){
       window.location.reload();
     }, 500);
     
-}
-delete(element:any){
-    for (var i = 0; i < element.length; i++)
-    {
-      var fileid=element[i].value.IdFile;
-      var idobj={
-        fileid: fileid
-      };
-      this.http.post('/api/deletefiles', idobj)
-      .subscribe((response) => {
-          console.log('response received is ', response);
-          location.reload();
-      })
-    }  
-
-  }
-
-  show(element:any){
-    console.dir(element[0].value);
   }
 
 

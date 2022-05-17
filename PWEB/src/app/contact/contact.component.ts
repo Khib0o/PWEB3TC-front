@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class contactInfo {
   email!: string
@@ -17,7 +18,7 @@ export class ContactComponent implements OnInit {
 
   ourForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private auth: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private auth: AuthService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.ourForm = this.formBuilder.group({
@@ -33,14 +34,16 @@ export class ContactComponent implements OnInit {
     "title": "",
     "description": ""
   };
-
+  
 
   onSubmitForm(): void {
     console.log(this.myContactInfo);
+    this._snackBar.open("Message envoyé", "Ok");
     this.auth.sendContactInfo(this.myContactInfo).subscribe(
       res => console.log(res),
       err => console.log(err)
     )
   }
+
 
 }
