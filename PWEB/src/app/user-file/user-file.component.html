@@ -21,7 +21,7 @@
                               <input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                           </form>
                           <div class="input-group-prepend">
-                            <button mat-raised-button color="primary" class="input-group-text upload" (click)="upload()" (click)="refresh()" id="btnUpload">Upload</button>
+                            <button mat-raised-button color="primary" class="input-group-text upload" (click)="upload()" (click)="refresh()" (click)="alertUpload()" id="btnUpload">Upload</button>
                         </div>
                       </div>
                       
@@ -52,14 +52,13 @@
                 <div mat-line style="color: rgb(63, 159, 214);"> {{file.name}}</div>
                 
                 <a (click)="func(file.name)">
-                    <div mat-line style="color: rgb(98, 98, 114);"> {{file.path}}</div> 
+                    <div mat-line style="color: rgb(98, 98, 114);"> <mat-icon>save_alt</mat-icon> </div> 
                 </a>
                            
             </mat-list-option>
         </mat-selection-list>
         <p>
             Files selected: {{files.selectedOptions.selected.length}}
-            Id project selected : {{selectedProjectId}}
         </p>
     </mat-list>
 

@@ -34,7 +34,6 @@
 
         <mat-drawer-content class="contentPage">
             <h1 style="text-align: center" > Projet selectionné: {{ selectedProjectId }} </h1>
-            <p> Projet selectionné: {{ selectedProjectId }} </p>
             <button mat-button class="parameter-button" [matMenuTriggerFor]="menuProjet" *ngIf="selectedProjectId">Paramètres Projets</button>
             <mat-menu #menuProjet="matMenu">
             <button mat-menu-item>

@@ -60,7 +60,7 @@ export class UserFileComponent implements OnChanges {
 
   alertUpload(){
     var inputFile = document.getElementById('inputGroupFile01');
-    if(inputFile?.isDefaultNamespace.length==0){
+    if(inputFile?.isDefaultNamespace.length==0 || this.uploadedFiles == null){
       alert('Please choose a file first');
     }
     //alert("UPLOAD DONE !");
@@ -132,7 +132,7 @@ export class UserFileComponent implements OnChanges {
   refresh(): void {
     setTimeout(function() {
       window.location.reload();
-    }, 1000);
+    }, 1500);
     
   }
 
