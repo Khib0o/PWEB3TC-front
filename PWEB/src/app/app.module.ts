@@ -13,8 +13,6 @@ import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MatTableModule } from '@angular/material/table';
-import { HelpComponent } from './help/help.component';
-import { ContactComponent } from './contact/contact.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserFileComponent } from './user-file/user-file.component';
@@ -43,8 +41,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HeaderComponent,
     ContentPageComponent,
     HomePageComponent,
-    HelpComponent,
-    ContactComponent,
     SignInComponent,
     UserFileComponent,
     RegisterComponent,

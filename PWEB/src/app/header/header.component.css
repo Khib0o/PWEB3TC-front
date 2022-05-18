@@ -11,29 +11,6 @@
     transform: translateY(4px);
   }
 
-.helps {
-    grid-area: helps;
-    color: white;
-    border :3px solid black;
-    transition-duration: 0.4s;
-
-}
-.helps:hover {
-    background-color: #6355cc; /* Green */
-    color: white;
-  }
-
-.contact {
-    grid-area: contact;
-    color: white;
-    border :3px solid black;
-}
-
-.contact:hover {
-    background-color: #6355cc; /* Green */
-    color: white;
-  }
-
 .sign {
     grid-area: sign;
     color: white;
@@ -62,8 +39,8 @@
     background-color: midnightblue;
     display: grid;
     grid-template-areas: 
-    "logo none functionality helps contact sign";
+    "logo none functionality sign";
     height: 50px;
-    margin-bottom: 2%;
+    margin-bottom: 0%;
 
 }

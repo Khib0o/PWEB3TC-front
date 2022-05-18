@@ -1,9 +1,5 @@
 
 <div class="grid-component">
-
-    <button mat-icon-button>
-        <mat-icon class="icon" (click)="drawer.toggle()" [ngStyle]="{'color':'white'}">menu</mat-icon>
-    </button>
     
     <mat-drawer-container class="pannel">
 
@@ -33,6 +29,11 @@
         
 
         <mat-drawer-content class="contentPage">
+
+            <button mat-icon-button>
+                <mat-icon class="icon" (click)="drawer.toggle()" [ngStyle]="{'color':'white'}">menu</mat-icon>
+            </button>
+
             <h1 style="text-align: center" > Projet selectionné: {{ selectedProjectId }} </h1>
             <button mat-button class="parameter-button" [matMenuTriggerFor]="menuProjet" *ngIf="selectedProjectId">Paramètres Projets</button>
             <mat-menu #menuProjet="matMenu">
