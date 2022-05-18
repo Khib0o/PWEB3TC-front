@@ -7,3 +7,21 @@
     margin-left: 5%;
     margin-right: 5%;
 }
+
+.mainContainer{
+    max-width: 1920px;
+    margin-bottom: 3%;
+}
+input[type="submit"]{
+    background-color: #4a66d4;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+   }
+
+.listeFichiers{
+    background-color: rgba(37, 153, 207, 0.15);
+}

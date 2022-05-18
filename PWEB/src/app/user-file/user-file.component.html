@@ -19,9 +19,10 @@
                       <div class="custom-file">
                           <form action="/api/upload" method="post" enctype="multipart/form-data">
                               <input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                              <input type="submit" mat-raised-button color="primary" class="input-group-text upload" (click)="upload()" (click)="refresh()" (click)="alertUpload()" id="btnUpload"  value="Upload"/>
+
                           </form>
                           <div class="input-group-prepend">
-                            <button mat-raised-button color="primary" class="input-group-text upload" (click)="upload()" (click)="refresh()" (click)="alertUpload()" id="btnUpload">Upload</button>
                         </div>
                       </div>
                       
@@ -33,24 +34,29 @@
           </div>
       </div>
     </div>
+
+   
     <mat-action-list>
         <button mat-raised-button color="warn" (click)="delete(files.selectedOptions.selected);" style="float: right; margin-top: 1%; margin-right: 1%;"> Supprimer </button>
     </mat-action-list>
+    <div class="listeFichiers">  
     <mat-list role="list" style="border: 2px solid #006100; border-radius: 10px;" >
-        <div mat-subheader>Shared Files</div>
+        <div mat-subheader>Fichiers partagés :</div>
         <!--<mat-list-item role="listitem" *ngFor="let file of sharedFiles |async">
             <button mat-raised-button color="primary">Modifier</button>
             <button mat-raised-button color="warn" (click)="delete(file.IdFile);" id={{file.IdFile}}>Supprimer</button> 
             <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
             <div mat-line style="color: rgb(255, 255, 255);"> {{file.Name}}</div>
-            <div mat-line style="color: rgb(98, 98, 114);"> {{file.DateLastModif | date:'medium'}}</div>
+            
             
         </mat-list-item>-->
+
+   
         <mat-selection-list #files>
             <mat-list-option *ngFor="let file of sharedFiles" [value]="file">
                 <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
                 <div mat-line style="color: rgb(63, 159, 214);"> {{file.name}}</div>
-                
+                <div mat-line style="color: rgb(0, 0, 0);"> {{file.DateLastModif | date:'medium'}}</div>
                 <a (click)="func(file.name)">
                     <div mat-line style="color: rgb(98, 98, 114);"> <mat-icon>save_alt</mat-icon> </div> 
                 </a>
@@ -60,7 +66,10 @@
         <p>
             Files selected: {{files.selectedOptions.selected.length}}
         </p>
+  
     </mat-list>
+</div>
+
 
 
 <!--
