@@ -19,7 +19,7 @@
 
                 <select matNativeControl required [(ngModel)]="selectedProjectId">
                     <option [selected]="0" [ngValue]=0>Espace Personnel</option>
-                    <option *ngFor="let projet of projets$ | async" [ngValue]="projet.IdProjects"> {{projet.Name}} </option>
+                    <option *ngFor="let projet of projets$ | async" [ngValue]="projet.Name"> {{projet.Name}} </option>
                 </select>
 
 
