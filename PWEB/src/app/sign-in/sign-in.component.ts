@@ -55,6 +55,7 @@ export class SignInComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    localStorage.clear();
     this.googleAuthSDK();
     this.display();
   }
@@ -75,7 +76,8 @@ export class SignInComponent implements OnInit {
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
-        localStorage.setItem('token', profile.getId())
+
+        localStorage.setItem('token', profile.getId()) //stockage du token
         
         this.userInfo.token = profile.getId();
         this.userInfo.id = profile.getId();

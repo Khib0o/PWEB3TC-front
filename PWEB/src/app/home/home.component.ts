@@ -101,7 +101,15 @@ export class HomeComponent implements OnInit {
           this.test.users = result.Users +","+res[0].email;
           this.test.tokenOwner = localStorage.getItem('token');
 
-          this._projectService.createNewProject(this.test).subscribe(res =>console.log(res), err => console.log(err));
+          this._projectService.createNewProject(this.test).subscribe(res =>console.log("res of http request CreateProject: ",res), err => console.log(err));
+          this._projectService.getLatestProjectByUser().subscribe(
+            res => {
+              console.log("Latest Project: ",res[0]);
+              let newIdProject = "" + res[0].IdProjects.toString()
+              localStorage.setItem('idCurrentProject', newIdProject);
+            },
+            err => console.log(err)
+          );
         },
         err => console.log(err) 
       );
@@ -142,7 +150,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.projets$ = this._projectService.getProjectbyUser();
-    this.selectedProjectId = 0;
+    console.log("this.selectedProjectId: ", this.selectedProjectId);
+    if ( Number(localStorage.getItem('idCurrentProject')) == null) {
+      this.selectedProjectId = 0;
+    } else {
+      this.selectedProjectId = Number(localStorage.getItem('idCurrentProject'));
+    }
+
   }
 
   onAddUserButton(projectUser : ProjectUserAssociation){

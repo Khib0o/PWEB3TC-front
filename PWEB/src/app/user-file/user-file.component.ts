@@ -43,11 +43,23 @@ export class UserFileComponent implements OnChanges {
   idString : string = "";
   
 
+  getCurrentId() : number {
+    let tmp = 0;
+    tmp = Number(localStorage.getItem('idCurrentProject')!);
+    return tmp;
+  }
+
   
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes['selectedProjectId'].currentValue);
-    this.currentProjectInfo.selectedProjectId = changes['selectedProjectId'].currentValue;
+    localStorage.setItem('idCurrentProject', changes['selectedProjectId'].currentValue);
+    //this.currentProjectInfo.selectedProjectId = changes['selectedProjectId'].currentValue;
+    //localStorage.setItem('idCurrentProject',  this.currentProjectInfo.selectedProjectId.toString()) //stockage du idCurrentProject
+
+    console.log(localStorage.getItem('idCurrentProject'));
+    this.currentProjectInfo.selectedProjectId = this.getCurrentId();
+
     this.fileService.getFile(this.currentProjectInfo).pipe(
 
     ).subscribe(

@@ -18,6 +18,7 @@ export class ProjectService {
   private _addUserToProject = "http://localhost:3000/api/addUserToProject";
   private _removeUserToProject = "http://localhost:3000/api/removeUserToProject";
   private _getMembersOfProject = "http://localhost:3000/api/getMembersOfProject";
+  private _getLatestProjectByUser = "http://localhost:3000/api/getLatestProjectByUser";
 
 
   httpOptions = {
@@ -26,6 +27,7 @@ export class ProjectService {
       'Authorization': `${this.auth.getToken()}`
    })
   }
+
 
   getProjectbyUser() {
     return this.http.get<Project[]>(this._getProjectByUser, this.httpOptions);
@@ -50,5 +52,11 @@ export class ProjectService {
 
     return this.http.post<NewProject>("http://localhost:3000/api/createNewProject", myProject, this.httpOptions);
   }
+
+  getLatestProjectByUser() {
+    return this.http.get<Project[]>(this._getLatestProjectByUser, this.httpOptions);
+  }
+
+
 
 }
