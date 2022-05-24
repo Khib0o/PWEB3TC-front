@@ -15,6 +15,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 
 export class UserFileComponent implements OnChanges {
   @Input() selectedProjectId: number = 0;
+  @Input() selectedProjectName: string = "";
 
 
   uploadedFiles!: File;
@@ -54,6 +55,7 @@ export class UserFileComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes['selectedProjectId'].currentValue);
     localStorage.setItem('idCurrentProject', changes['selectedProjectId'].currentValue);
+    localStorage.setItem('CurrentProjectName', changes['selectedProjectName'].currentValue);
     //this.currentProjectInfo.selectedProjectId = changes['selectedProjectId'].currentValue;
     //localStorage.setItem('idCurrentProject',  this.currentProjectInfo.selectedProjectId.toString()) //stockage du idCurrentProject
 
