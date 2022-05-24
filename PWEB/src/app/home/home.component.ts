@@ -32,7 +32,18 @@ export class HomeComponent implements OnInit {
 
   email!: string;
   IdProjects!: number;
-  selectedProjectId!: number;
+  selectedProjectId: Project = {
+    "IdOwner": 0,
+    "IdProjects": 0,
+    "Name":"Espace Personnel"
+  }
+
+  defaultSelectedProjectId: Project = {
+    "IdOwner": 0,
+    "IdProjects": 0,
+    "Name":"Espace Personnel"
+  }
+
   isProject!: boolean;
   
   projectUser: ProjectUserAssociation = {
@@ -59,6 +70,11 @@ export class HomeComponent implements OnInit {
 
   myProfile!: any;
 
+  onChange(event : any) {
+    console.log("onChange SelectProject: ",event.Name);
+    localStorage.setItem('CurrentProjectName', event.Name);
+  }
+
 
   openDialogAdd() {
     const dialogRef = this.dialog.open(AddUserDialog, {
@@ -70,7 +86,7 @@ export class HomeComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
 
       this.projectUser.email = result;
-      this.projectUser.IdProjects = this.selectedProjectId
+      this.projectUser.IdProjects = this.selectedProjectId.IdProjects;
       console.log("Add User to project: ",this.projectUser)
       this.onAddUserButton(this.projectUser);
     });
@@ -128,7 +144,7 @@ export class HomeComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
 
       this.projectUser.email = result;
-      this.projectUser.IdProjects = this.selectedProjectId
+      this.projectUser.IdProjects = this.selectedProjectId.IdProjects
       console.log("Add User to project: ",this.projectUser)
       this.onRemoveUserButton(this.projectUser);
     });
@@ -152,10 +168,15 @@ export class HomeComponent implements OnInit {
     this.projets$ = this._projectService.getProjectbyUser();
     console.log("this.selectedProjectId: ", this.selectedProjectId);
     if ( Number(localStorage.getItem('idCurrentProject')) == null) {
-      this.selectedProjectId = 0;
+      this.selectedProjectId.IdProjects = 0;
+      this.selectedProjectId.Name = "Espace Personnel";
     } else {
-      this.selectedProjectId = Number(localStorage.getItem('idCurrentProject'));
+      this.selectedProjectId.IdProjects = Number(localStorage.getItem('idCurrentProject'));
+      this.selectedProjectId.Name = ""+localStorage.getItem('CurrentProjectName');
     }
+
+
+    
 
   }
 
@@ -174,7 +195,7 @@ export class HomeComponent implements OnInit {
   }
 
   onGetMembersProjectButton(){
-    this.selectedProjectIdJson.IdProjects = this.selectedProjectId;
+    this.selectedProjectIdJson.IdProjects = this.selectedProjectId.IdProjects;
     this._projectService.getMembersOfProject( this.selectedProjectIdJson).subscribe(
       res => console.log(res),
       err => console.log(err)

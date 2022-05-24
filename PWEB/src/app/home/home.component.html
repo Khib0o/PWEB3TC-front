@@ -17,9 +17,9 @@
                 <mat-form-field appearance="fill">
                 <mat-label>Vos Projets</mat-label>
 
-                <select matNativeControl required [(ngModel)]="selectedProjectId">
-                    <option [selected]="0" [ngValue]=0>Espace Personnel</option>
-                    <option *ngFor="let projet of projets$ | async" [ngValue]="projet.IdProjects"> {{projet.Name}} </option>
+                <select matNativeControl required [(ngModel)]="selectedProjectId" (ngModelChange)="onChange($event)">
+                    <option [selected]="0"  [ngValue]="defaultSelectedProjectId" >Espace Personnel</option>
+                    <option *ngFor="let projet of projets$ | async" [ngValue]="projet"> {{projet.Name}} </option>
                 </select>
 
 
@@ -33,7 +33,7 @@
         
 
         <mat-drawer-content class="contentPage">
-            <h1 style="text-align: center" > Projet selectionné: {{ selectedProjectId }} </h1>
+            <h1 style="text-align: center" > Projet selectionné: {{ selectedProjectId.Name }} </h1>
             <button mat-button class="parameter-button" [matMenuTriggerFor]="menuProjet" *ngIf="selectedProjectId">Paramètres Projets</button>
             <mat-menu #menuProjet="matMenu">
             <button mat-menu-item>
@@ -54,7 +54,7 @@
             
 
             
-            <app-user-file [selectedProjectId] = "selectedProjectId" ></app-user-file>
+            <app-user-file [selectedProjectId] = "selectedProjectId.IdProjects" ></app-user-file>
 
 
 
