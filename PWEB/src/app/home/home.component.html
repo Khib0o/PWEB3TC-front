@@ -10,10 +10,8 @@
         
         <mat-drawer #drawer mode="side" opened class="sidenav">
             <div class="grid-container">
-                <img routerLink="" class="logo" src="/assets/logo.png">
+                
                 <button mat-flat-button (click)="openDialogProjectCreate()"> Nouveau Projet </button>
-                <button mat-flat-button *ngFor="let project of projets$| async"> {{project.Name}} </button>
-
                 <mat-form-field appearance="fill">
                 <mat-label>Vos Projets</mat-label>
 
@@ -50,7 +48,6 @@
             </button>
             </mat-menu>
 
-            <button (click)="onGetMembersProjectButton()"> Afficher membres du projet selectionné dans la console </button>
             
 
             
