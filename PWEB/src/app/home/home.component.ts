@@ -123,6 +123,9 @@ export class HomeComponent implements OnInit {
               console.log("Latest Project: ",res[0]);
               let newIdProject = "" + res[0].IdProjects.toString()
               localStorage.setItem('idCurrentProject', newIdProject);
+              
+              let newNameProject = ""+ res[0].Name;
+              localStorage.setItem('CurrentProjectName', newNameProject);
             },
             err => console.log(err)
           );
