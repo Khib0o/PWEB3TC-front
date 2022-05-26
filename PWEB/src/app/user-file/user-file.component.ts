@@ -4,8 +4,7 @@ import { HttpClient} from '@angular/common/http';
 import { debounceTime, map } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { SimpleChanges } from '@angular/core';
-import { waitForAsync } from '@angular/core/testing';
-import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-user-file',

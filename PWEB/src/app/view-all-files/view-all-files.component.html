@@ -1,0 +1,48 @@
+<div class="page">
+    <!--Fichier par projet-->
+    <button mat-flat-button routerLink="/functionality" style="margin-top: 1%; margin-right: 1%;">Retour au Partage de Fichier</button>
+    <mat-action-list>
+        <button mat-raised-button color="warn" (click)="delete(files.selectedOptions.selected);" style="float: right; margin-top: 1%; margin-right: 1%;"> Supprimer fichier selectionné</button>
+    </mat-action-list>
+    <div class="listeFichiers">  
+    <mat-list role="list" style="border: 2px solid #3f00b5; border-radius: 10px;" >
+        <div mat-subheader style="color: rgb(255, 255, 255);" >Tous vos fichiers par projet</div>
+
+        <mat-selection-list #files>
+            <mat-list-option *ngFor="let file of allFiles$ | async" [value]="file" >
+                <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
+                <div mat-line style="color: rgb(63, 159, 214);"> {{file.name}}</div>
+                <div mat-line style="color: rgb(255, 255, 255);"> {{file.Name }}</div>
+                <div mat-line style="color: rgb(255, 255, 255);"> Id Projet: {{file.IdProjects }}</div>
+                <div mat-line style="color: rgb(255, 255, 255);"> Id Fichier: {{file.id }}</div>
+                        
+            </mat-list-option>
+        </mat-selection-list>
+        <p>
+            Files selected: {{files.selectedOptions.selected.length}}
+        </p>
+    </mat-list>
+
+    <!--Fichier espace personnel-->
+    <mat-action-list>
+        <button mat-raised-button color="warn" (click)="delete(files1.selectedOptions.selected);" style="float: right; margin-top: 1%; margin-right: 1%;"> Supprimer fichier selectionné</button>
+    </mat-action-list>
+    <div class="listeFichiers">  
+    <mat-list role="list2" style="border: 2px solid #9dff00; border-radius: 10px;" >
+        <div mat-subheader style="color: rgb(255, 255, 255);" >Votre Espace Personnel</div>
+
+        <mat-selection-list #files1>
+            <mat-list-option *ngFor="let file of myFiles$ | async" [value]="file" >
+                <mat-icon mat-list-icon style="color: rgb(164, 157, 20);">note</mat-icon>
+                <div mat-line style="color: rgb(63, 159, 214);"> {{file.name}}</div>
+                <div mat-line style="color: rgb(255, 255, 255);"> {{file.Name }}</div>
+                <div mat-line style="color: rgb(255, 255, 255);"> Id Projet: {{file.IdProjects }}</div>
+                <div mat-line style="color: rgb(255, 255, 255);"> Id Fichier: {{file.id }}</div>
+                        
+            </mat-list-option>
+        </mat-selection-list>
+        <p>
+            Files selected: {{files1.selectedOptions.selected.length}}
+        </p>
+    </mat-list>
+</div>

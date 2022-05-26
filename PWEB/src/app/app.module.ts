@@ -30,7 +30,8 @@ import { ProfileComponent } from './home-page/profile/profile.component';
 import { ContentMyPageComponent } from './home-page/content-mypage/content-mypage.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ViewAllFilesComponent } from './view-all-files/view-all-files.component'; 
 
 
 
@@ -52,7 +53,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ContentMyPageComponent,
     AddUserDialog,
     RemoveUserDialog,
-    CreateProjectDialog
+    CreateProjectDialog,
+    ViewAllFilesComponent
   ],
   imports: [
     BrowserModule,

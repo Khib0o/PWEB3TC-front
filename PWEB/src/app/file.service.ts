@@ -23,6 +23,7 @@ export class FileService {
   private _fileLoad = "http://localhost:3000"
   private _fileUpload = "http://localhost:3000/api/upload"
   private _fileDownload = "http://localhost:3000/api/download"
+  private _getAllFilesProject = "http://localhost:3000/api/getAllFilesProject"
 
   httpOptions = {
     headers: new HttpHeaders({ 
@@ -75,6 +76,10 @@ export class FileService {
   /*getDown(){
     return this.http.get<any>(this._fileDownload,this.httpOptions2);
   }*/
+
+  getAllFilesProject() {
+    return this.http.get<any>(this._getAllFilesProject, this.httpOptions2);
+  }
 
   
 
